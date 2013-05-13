@@ -1,0 +1,4 @@
+
+[submodule "externals/EasyStorage"]
+	path = externals/EasyStorage
+	url = https://github.com/dmanning23/EasyStorage.git
