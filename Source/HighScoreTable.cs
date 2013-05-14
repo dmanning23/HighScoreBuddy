@@ -60,7 +60,7 @@ namespace HighScoreBuddy
 		/// gets the storage device
 		/// </summary>
 		/// <param name="myGame">the current game.</param>
-		protected void Initialize(Game myGame)
+		public void Initialize(Game myGame)
 		{
 			//First add the default lists to the table
 			AddLists();
