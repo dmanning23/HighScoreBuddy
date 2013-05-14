@@ -69,7 +69,7 @@ namespace HighScoreBuddy
 		/// </summary>
 		/// <returns><c>true</c>, if there are any high scores, <c>false</c> otherwise.</returns>
 		/// <param name="rScoreCard">the score card to check.</param>
-		public bool CheckForHighScores(int iScore)
+		public bool CheckForHighScores(uint iScore)
 		{
 			//Check for a high score
 			for (int i = 0; i < _iNumEntries; i++)
