@@ -14,12 +14,12 @@ namespace HighScoreBuddy
 		/// <summary>
 		/// list of 10 high scores
 		/// </summary>
-		private List<HighScoreData> m_listEntries;
+		public List<HighScoreData> Entries { get; private set; }
 
 		/// <summary>
 		/// The number of high scores entries to hold in each table
 		/// </summary>
-		private const int _iNumEntries = 10;
+		public const int NumEntries = 10;
 
 		/// <summary>
 		/// The text to display when someone gets onto this list
@@ -41,7 +41,7 @@ namespace HighScoreBuddy
 		/// </summary>
 		public HighScoreList()
 		{
-			m_listEntries = new List<HighScoreData>();
+			Entries = new List<HighScoreData>();
 		}
 
 		/// <summary>
@@ -55,11 +55,11 @@ namespace HighScoreBuddy
 			MessageText = strMessageText;
 
 			//initialize the list with some default entries
-			m_listEntries = new List<HighScoreData>();
+			Entries = new List<HighScoreData>();
 			uint iScore = startScore;
-			for (uint i = 0; i < _iNumEntries; i++)
+			for (uint i = 0; i < NumEntries; i++)
 			{
-				m_listEntries.Add(new HighScoreData(InitialName, iScore));
+				Entries.Add(new HighScoreData(InitialName, iScore));
 				iScore += scoreStep;
 			}
 		}
@@ -72,9 +72,9 @@ namespace HighScoreBuddy
 		public bool CheckForHighScores(uint iScore)
 		{
 			//Check for a high score
-			for (int i = 0; i < _iNumEntries; i++)
+			for (int i = 0; i < NumEntries; i++)
 			{
-				if (iScore > m_listEntries[i].Score)
+				if (iScore > Entries[i].Score)
 				{
 					//player got a new high score!
 					return true;
@@ -92,17 +92,17 @@ namespace HighScoreBuddy
 		public bool AddHighScores(string strName, uint iScore, List<string> strMessages)
 		{
 			//Check for a high score
-			for (int i = 0; i < _iNumEntries; i++)
+			for (int i = 0; i < NumEntries; i++)
 			{
-				if (iScore > m_listEntries[i].Score)
+				if (iScore > Entries[i].Score)
 				{
 					//player got a new high score!
 					HighScoreData myHighScore = new HighScoreData(strName, iScore);
 					myHighScore.NewHighScore = true;
 					
 					//add to the list, and remove the last entry
-					m_listEntries.Insert(i, myHighScore);
-					m_listEntries.RemoveAt(_iNumEntries);
+					Entries.Insert(i, myHighScore);
+					Entries.RemoveAt(NumEntries);
 					
 					//popup a high score message
 					strMessages.Add(strName + MessageText);
@@ -122,7 +122,7 @@ namespace HighScoreBuddy
 		public void ReadFromXML(XmlNode rXMLNode)
 		{
 			//clear out the list of entries
-			m_listEntries.Clear();
+			Entries.Clear();
 
 			//make sure it is actually an xml node
 			if (rXMLNode.NodeType == XmlNodeType.Element)
@@ -153,12 +153,12 @@ namespace HighScoreBuddy
 				{
 					//only read 10 entries
 					XmlNode childNode = rXMLNode.FirstChild;
-					while ((childNode != null) && (m_listEntries.Count <= _iNumEntries))
+					while ((childNode != null) && (Entries.Count <= NumEntries))
 					{
 						//create, read, and store a new high score entry from this xml node
 						HighScoreData rMyData = new HighScoreData();
 						rMyData.ReadFromXML(childNode);
-						m_listEntries.Add(rMyData);
+						Entries.Add(rMyData);
 
 						//next node!
 						childNode = childNode.NextSibling;
@@ -181,7 +181,7 @@ namespace HighScoreBuddy
 			rXMLFile.WriteAttributeString("ListName", Name);
 
 			//write out all the scores
-			foreach (HighScoreData iter in m_listEntries)
+			foreach (HighScoreData iter in Entries)
 			{
 				iter.WriteToXML(rXMLFile);
 			}
