@@ -62,6 +62,9 @@ namespace HighScoreBuddy
 				Entries.Add(new HighScoreData(InitialName, iScore));
 				iScore += scoreStep;
 			}
+
+			//ok, reverse the entries because they are added from low -> high
+			Entries.Reverse();
 		}
 
 		/// <summary>

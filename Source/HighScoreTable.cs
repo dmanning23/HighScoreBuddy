@@ -230,9 +230,6 @@ namespace HighScoreBuddy
 		/// <param name="myFileStream">My file stream.</param>
 		private void ReadHighScores(Stream myFileStream)
 		{
-			//clear out the current high scores since we are reading them in anyway.
-			HighScoreLists.Clear();
-
 			XmlDocument xmlDoc = new XmlDocument();
 			xmlDoc.Load(myFileStream);
 			XmlNode rootNode = xmlDoc.DocumentElement;
@@ -249,8 +246,31 @@ namespace HighScoreBuddy
 					XmlNode childNode = rootNode.FirstChild;
 					while (childNode != null)
 					{
+						//get the name of this list
+						string ListName = "";
+						XmlNamedNodeMap mapAttributes = childNode.Attributes;
+						for (int i = 0; i < mapAttributes.Count; i++)
+						{
+							//will only have the name attribute
+							string strName = mapAttributes.Item(i).Name;
+							string strValue = mapAttributes.Item(i).Value;
+							if ("ListName" == strName)
+							{
+								ListName = strValue;
+							}
+							else
+							{
+								//unknwon attribute in the xml file!!!
+								Debug.Assert(false);
+							}
+						}
+
+						//find the list from the xml file
+						Debug.Assert(!String.IsNullOrEmpty(ListName));
+						HighScoreList rHighScoreList = HighScoreLists[ListName];
+						Debug.Assert(null != rHighScoreList);
+
 						//create, read, and store a new high score list from this xml node
-						HighScoreList rHighScoreList = new HighScoreList();
 						rHighScoreList.ReadFromXML(childNode);
 						HighScoreLists.Add(rHighScoreList.Name, rHighScoreList);
 						
