@@ -47,7 +47,7 @@ namespace HighScoreBuddy
 			//set the save location
 			Folder = FolderLocation;
 
-
+			HighScoreLists = new Dictionary<string, HighScoreList>();
 		}
 
 		/// <summary>
@@ -145,12 +145,10 @@ namespace HighScoreBuddy
 
 		public void Load()
 		{
-			// make sure the device is ready
-			if (saveDevice.IsReady)
+			//if there is a file there, load it into the system
+			if (saveDevice.FileExists(Folder, "HighScores.xml"))
 			{
-				// save a file asynchronously. this will trigger IsBusy to return true
-				// for the duration of the save process.
-				saveDevice.LoadAsync(
+				saveDevice.Load(
 					Folder,
 					"HighScores.xml",
 					ReadHighScores);
