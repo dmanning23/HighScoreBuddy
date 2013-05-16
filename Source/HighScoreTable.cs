@@ -35,6 +35,12 @@ namespace HighScoreBuddy
 		/// <value>The name of the folder.</value>
 		private string Folder { get; set; }
 
+		/// <summary>
+		/// Flag for whether or not teh high scores have been loaded from a file
+		/// </summary>
+		/// <value><c>true</c> if loaded; otherwise, <c>false</c>.</value>
+		private bool Loaded { get; set; }
+
 		#endregion //Member Variables
 
 		#region Methods
@@ -48,6 +54,7 @@ namespace HighScoreBuddy
 			Folder = FolderLocation;
 
 			HighScoreLists = new Dictionary<string, HighScoreList>();
+			Loaded = false;
 		}
 
 		/// <summary>
@@ -88,6 +95,13 @@ namespace HighScoreBuddy
 
 			// we use the tap gesture for input on the phone
 			TouchPanel.EnabledGestures = GestureType.Tap;
+
+			sharedSaveDevice.DeviceSelected += (s, e) =>
+			{
+				//Save our save device to the global counterpart, so we can access it
+				//anywhere we want to save/load
+				saveDevice = (SaveDevice)s;
+			};
 
 			#if XBOX
 			// add the GamerServicesComponent
@@ -145,13 +159,27 @@ namespace HighScoreBuddy
 
 		public void Load()
 		{
-			//if there is a file there, load it into the system
-			if (saveDevice.FileExists(Folder, "HighScores.xml"))
+			if (!Loaded)
 			{
-				saveDevice.Load(
-					Folder,
-					"HighScores.xml",
-					ReadHighScores);
+				try
+				{
+					//if there is a file there, load it into the system
+					if (saveDevice.FileExists(Folder, "HighScores.xml"))
+					{
+						saveDevice.Load(
+							Folder,
+							"HighScores.xml",
+							ReadHighScores);
+					}
+
+					//set the Loaded flag to true since high scores only need to be laoded once
+					Loaded = true;
+				}
+				catch
+				{
+					//now you fucked up
+					Loaded = false;
+				}
 			}
 		}
 
