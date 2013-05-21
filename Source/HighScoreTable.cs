@@ -272,7 +272,7 @@ namespace HighScoreBuddy
 
 						//create, read, and store a new high score list from this xml node
 						rHighScoreList.ReadFromXML(childNode);
-						HighScoreLists.Add(rHighScoreList.Name, rHighScoreList);
+						HighScoreLists[rHighScoreList.Name] = rHighScoreList;
 						
 						//next node!
 						childNode = childNode.NextSibling;
