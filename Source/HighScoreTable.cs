@@ -74,9 +74,9 @@ namespace HighScoreBuddy
 
 			// on Windows Phone we use a save device that uses IsolatedStorage
 			// on Windows and Xbox 360, we use a save device that gets a shared StorageDevice to handle our file IO.
-			#if WINDOWS_PHONE
+#if WINDOWS_PHONE || ANDROID
 			saveDevice = new IsolatedStorageSaveDevice();
-			#else
+#else
 			// create and add our SaveDevice
 			SharedSaveDevice sharedSaveDevice = new SharedSaveDevice();
 			myGame.Components.Add(sharedSaveDevice);
@@ -91,31 +91,32 @@ namespace HighScoreBuddy
 
 			// prompt for a device on the first Update we can
 			sharedSaveDevice.PromptForDevice();
-			#endif
+#endif
 
-			// we use the tap gesture for input on the phone
-			TouchPanel.EnabledGestures = GestureType.Tap;
-
-			sharedSaveDevice.DeviceSelected += (s, e) =>
-			{
-				//Save our save device to the global counterpart, so we can access it
-				//anywhere we want to save/load
-				saveDevice = (SaveDevice)s;
-			};
-
-			#if XBOX
+#if XBOX
 			// add the GamerServicesComponent
 			Components.Add(new Microsoft.Xna.Framework.GamerServices.GamerServicesComponent(this));
-			#endif
+#endif
 
 			// hook an event so we can see that it does fire
 			saveDevice.SaveCompleted += new SaveCompletedEventHandler(saveDevice_SaveCompleted);
 		}
-
+		
+		/// <summary>
+		/// event handler that gets fired off when a write op is completed
+		/// </summary>
+		/// <param name="sender">Sender.</param>
+		/// <param name="args">Arguments.</param>
 		void saveDevice_SaveCompleted(object sender, FileActionCompletedEventArgs args)
 		{
-			// just write some debug output for our verification
-			//Debug.WriteLine("SaveCompleted!");
+			//Write a message out to the deubg log so we know whats going on
+			string strText = "SaveCompleted!";
+			if (null != args.Error)
+			{
+				strText = args.Error.Message;
+			}
+
+			Debug.WriteLine(strText);
 		}
 
 		/// <summary>
@@ -175,10 +176,13 @@ namespace HighScoreBuddy
 					//set the Loaded flag to true since high scores only need to be laoded once
 					Loaded = true;
 				}
-				catch
+				catch (Exception ex)
 				{
 					//now you fucked up
 					Loaded = false;
+
+					// just write some debug output for our verification
+					Debug.WriteLine(ex.Message);
 				}
 			}
 		}
@@ -218,9 +222,10 @@ namespace HighScoreBuddy
 				rFile.Flush();
 				rFile.Close();
 			}
-			catch (Exception /*exception*/)
+			catch (Exception ex)
 			{
-				//TODO: something bad happened?
+				// just write some debug output for our verification
+				Debug.WriteLine(ex.Message);
 			}
 		}
 
