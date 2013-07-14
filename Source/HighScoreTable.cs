@@ -175,6 +175,7 @@ namespace HighScoreBuddy
 
 					//set the Loaded flag to true since high scores only need to be laoded once
 					Loaded = true;
+					Debug.WriteLine("Loaded High Scores");
 				}
 				catch (Exception ex)
 				{
