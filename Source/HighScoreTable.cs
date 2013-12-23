@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Xml;
-using System.Diagnostics;
-using EasyStorage;
+﻿using EasyStorage;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Input.Touch;
-using System.IO;
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Xml;
 
 namespace HighScoreBuddy
 {
