@@ -19,7 +19,7 @@ namespace HighScoreBuddy
 		/// <summary>
 		/// The number of high scores entries to hold in each table
 		/// </summary>
-		public const int NumEntries = 10;
+		public int NumEntries { get; set; }
 
 		/// <summary>
 		/// The text to display when someone gets onto this list
@@ -48,11 +48,12 @@ namespace HighScoreBuddy
 		/// initilize the high score list
 		/// </summary>
 		/// <param name="eType">the type of this list</param>
-		public HighScoreList(string ListName, uint startScore, uint scoreStep, string InitialName, string strMessageText)
+		public HighScoreList(string ListName, uint startScore, uint scoreStep, string InitialName, string strMessageText, int iNumEntries)
 		{
 			//Grab all these parameters we will need later
 			Name = ListName;
 			MessageText = strMessageText;
+			NumEntries = iNumEntries;
 
 			//initialize the list with some default entries
 			Entries = new List<HighScoreData>();
