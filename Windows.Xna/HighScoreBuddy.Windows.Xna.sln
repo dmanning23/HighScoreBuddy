@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighScoreBuddy.Windows.Xna", "HighScoreBuddy.Windows.Xna.csproj", "{ADC3F9C8-C6C6-421E-B44E-38988D9E5141}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyStorage.Windows.Xna", "..\externals\EasyStorage\Windows.Xna\EasyStorage.Windows.Xna.csproj", "{92E7BB8F-4B13-4370-ACA8-D97F22848353}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADC3F9C8-C6C6-421E-B44E-38988D9E5141}.Debug|x86.ActiveCfg = Debug|x86
+		{ADC3F9C8-C6C6-421E-B44E-38988D9E5141}.Debug|x86.Build.0 = Debug|x86
+		{ADC3F9C8-C6C6-421E-B44E-38988D9E5141}.Release|x86.ActiveCfg = Release|x86
+		{ADC3F9C8-C6C6-421E-B44E-38988D9E5141}.Release|x86.Build.0 = Release|x86
+		{92E7BB8F-4B13-4370-ACA8-D97F22848353}.Debug|x86.ActiveCfg = Debug|x86
+		{92E7BB8F-4B13-4370-ACA8-D97F22848353}.Debug|x86.Build.0 = Debug|x86
+		{92E7BB8F-4B13-4370-ACA8-D97F22848353}.Release|x86.ActiveCfg = Release|x86
+		{92E7BB8F-4B13-4370-ACA8-D97F22848353}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
