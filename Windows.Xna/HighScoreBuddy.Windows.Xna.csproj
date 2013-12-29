@@ -71,7 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\externals\EasyStorage\Windows.Xna\EasyStorage.Windows.Xna.csproj">
+    <ProjectReference Include="..\..\EasyStorage\Windows.Xna\EasyStorage.Windows.Xna.csproj">
       <Project>{92E7BB8F-4B13-4370-ACA8-D97F22848353}</Project>
       <Name>EasyStorage.Windows.Xna</Name>
     </ProjectReference>
