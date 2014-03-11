@@ -8,3 +8,6 @@
 [submodule "externals/ouya-csharp"]
 	path = externals/ouya-csharp
 	url = https://github.com/dmanning23/ouya-csharp.git
+[submodule "externals/FileBuddy"]
+	path = externals/FileBuddy
+	url = git@github.com:dmanning23/FileBuddy.git
