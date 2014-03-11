@@ -74,15 +74,15 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\externals\EasyStorage\Windows\EasyStorage.Windows.csproj">
+    <ProjectReference Include="..\..\EasyStorage\Windows\EasyStorage.Windows.csproj">
       <Project>{9272052E-A304-4DBB-B4BD-35B0453ED522}</Project>
       <Name>EasyStorage.Windows</Name>
     </ProjectReference>
-    <ProjectReference Include="..\externals\FileBuddy\Windows\FileBuddyLib.Windows.csproj">
+    <ProjectReference Include="..\..\FileBuddy\Windows\FileBuddyLib.Windows.csproj">
       <Project>{9cf5b7ed-4ed9-4fbf-a35c-54945b903298}</Project>
       <Name>FileBuddyLib.Windows</Name>
     </ProjectReference>
-    <ProjectReference Include="..\externals\MonoGame\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
+    <ProjectReference Include="..\..\MonoGame\MonoGame.Framework\MonoGame.Framework.WindowsGL.csproj">
       <Project>{7de47032-a904-4c29-bd22-2d235e8d91ba}</Project>
       <Name>MonoGame.Framework.WindowsGL</Name>
     </ProjectReference>
