@@ -71,5 +71,9 @@
       <Project>{5EFBEB2D-0FA6-4D91-B7E6-70A6E5BCD4E5}</Project>
       <Name>EasyStorage.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\FileBuddy\Android\FileBuddyLib.Android.csproj">
+      <Project>{FE136AAE-F1A7-43D7-8868-F7C9D5E43FE1}</Project>
+      <Name>FileBuddyLib.Android</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
