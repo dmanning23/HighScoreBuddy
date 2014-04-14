@@ -52,7 +52,11 @@ namespace HighScoreBuddy
 			//First add the default lists to the table
 			AddLists();
 
+			//initialize the filebuddy stuff
 			base.Initialize(myGame);
+
+			//load the high score table
+			Load();
 		}
 
 		/// <summary>
