@@ -49,11 +49,11 @@ namespace HighScoreBuddy
 		/// <param name="myGame">the current game.</param>
 		public override void Initialize(Game myGame)
 		{
-			//First add the default lists to the table
-			AddLists();
-
 			//initialize the filebuddy stuff
 			base.Initialize(myGame);
+
+			//First add the default lists to the table
+			AddLists();
 
 			//load the high score table
 			Load();
