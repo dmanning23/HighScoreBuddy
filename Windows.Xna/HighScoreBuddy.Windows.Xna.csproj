@@ -75,6 +75,10 @@
       <Project>{92E7BB8F-4B13-4370-ACA8-D97F22848353}</Project>
       <Name>EasyStorage.Windows.Xna</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\FileBuddy\Windows.Xna\FileBuddy.Windows.Xna.csproj">
+      <Project>{D635BAB9-19BA-44D2-A4E8-9B256BCE1676}</Project>
+      <Name>FileBuddy.Windows.Xna</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
