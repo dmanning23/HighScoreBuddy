@@ -86,6 +86,10 @@
       <Project>{9cf5b7ed-4ed9-4fbf-a35c-54945b903298}</Project>
       <Name>FileBuddyLib.Windows</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Filename\Windows\Filename.Windows.csproj">
+      <Project>{2a84dfe8-75e0-4774-baaf-00629ed44405}</Project>
+      <Name>Filename.Windows</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
