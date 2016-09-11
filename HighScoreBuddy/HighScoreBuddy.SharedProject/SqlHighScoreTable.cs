@@ -87,6 +87,11 @@ namespace HighScoreBuddy
 			throw new NotImplementedException();
 		}
 
+		public bool IsDailyHighScore(string highScoreList, uint points, int num)
+		{
+			throw new NotImplementedException();
+		}
+
 		public void TruncateHighScoreList(string highScoreList, int num)
 		{
 			throw new NotImplementedException();

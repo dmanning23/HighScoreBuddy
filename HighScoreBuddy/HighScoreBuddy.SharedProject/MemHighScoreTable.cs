@@ -58,6 +58,11 @@ namespace HighScoreBuddy
 			return false;
 		}
 
+		public bool IsDailyHighScore(string highScoreList, uint points, int num)
+		{
+			return IsHighScore(highScoreList, points, num);
+		}
+
 		public void TruncateHighScoreList(string highScoreList, int num)
 		{
 			//just dont bother

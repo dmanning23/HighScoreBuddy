@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
-using System.Text;
-using Microsoft.Xna.Framework;
 
 namespace HighScoreBuddy
 {
 	/// <summary>
 	/// The interface for a set of high score lists
 	/// </summary>
-    interface IHighScoreTable : IGameComponent
-    {
+	public interface IHighScoreTable : IGameComponent
+	{
 		/// <summary>
 		/// Add a high score to the list of all high scores.
 		/// </summary>
@@ -26,6 +25,15 @@ namespace HighScoreBuddy
 		/// <param name="num">the number of items in each high score list</param>
 		/// <returns></returns>
 		bool IsHighScore(string highScoreList, uint points, int num);
+
+		/// <summary>
+		/// Check if the player got a high score for today
+		/// </summary>
+		/// <param name="highScoreList">the list to check</param>
+		/// <param name="points">the number of points that were scored</param>
+		/// <param name="num">the number of items in each high score list</param>
+		/// <returns></returns>
+		bool IsDailyHighScore(string highScoreList, uint points, int num);
 
 		/// <summary>
 		/// Truncate a high score list to the top num of items
