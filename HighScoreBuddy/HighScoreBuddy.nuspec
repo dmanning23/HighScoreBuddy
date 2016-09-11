@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+	<metadata>
+		<id>HighScoreBuddy</id>
+		<version>1.0.0</version>
+		<title>HighScoreBuddy</title>
+		<authors>dmanning23</authors>
+		<owners>dmanning23</owners>
+		<projectUrl>https://github.com/dmanning23/HighScoreBuddy</projectUrl>
+		<licenseUrl>https://github.com/dmanning23/HighScoreBuddy/blob/master/LICENSE.txt</licenseUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>HighScoreBuddy is a MonoGame library for saving and loading of local high score tables from SQL.</description>
+		<releaseNotes />
+		<copyright>Copyright 2016</copyright>
+		<tags>pcl, windows phone, winphone, android, ios, windows universal, monogame</tags>
+		<dependencies>
+
+			<!--Xamarin.Android-->
+			<group targetFramework="MonoAndroid10">
+				<dependency id="MonoGame.Framework.Android" version="3.5"/>
+				<dependency id="FilenameBuddy" version="1.0.1"/>
+				<dependency id="FontBuddy" version="1.0.8"/>
+				<dependency id="GameTimer" version="1.0"/>
+				<dependency id="HadoukInput" version="1.0"/>
+				<dependency id="InputHelper" version="1.0.1"/>
+				<dependency id="MatrixExtensions" version="1.0"/>
+				<dependency id="MenuBuddy" version="1.0"/>
+				<dependency id="MouseBuddy" version="1.0"/>
+				<dependency id="PrimitiveBuddy" version="1.0"/>
+				<dependency id="RandomExtensions.dmanning23" version="1.0"/>
+				<dependency id="ResolutionBuddy" version="1.0"/>
+				<dependency id="StateMachineBuddy" version="1.0"/>
+				<dependency id="TouchScreenBuddy" version="1.0"/>
+				<dependency id="Vector2Extensions" version="1.0.1"/>
+				<dependency id="XmlBuddy" version="1.0"/>
+				<dependency id="SQLiteConnectionBuddy" version="1.0"/>
+				<dependency id="SQLite.Net-PCL" version="3.1.1"/>
+				<dependency id="SQLite.Net.Core-PCL" version="3.1.1"/>
+			</group>
+
+			<!--Xamarin.iOS Unified-->
+			<group targetFramework="Xamarin.iOS10">
+				<dependency id="MonoGame.Framework.iOS" version="3.5"/>
+				<dependency id="FilenameBuddy" version="1.0.1"/>
+				<dependency id="FontBuddy" version="1.0.8"/>
+				<dependency id="GameTimer" version="1.0"/>
+				<dependency id="HadoukInput" version="1.0"/>
+				<dependency id="InputHelper" version="1.0.1"/>
+				<dependency id="MatrixExtensions" version="1.0"/>
+				<dependency id="MenuBuddy" version="1.0"/>
+				<dependency id="MouseBuddy" version="1.0"/>
+				<dependency id="PrimitiveBuddy" version="1.0"/>
+				<dependency id="RandomExtensions.dmanning23" version="1.0"/>
+				<dependency id="ResolutionBuddy" version="1.0"/>
+				<dependency id="StateMachineBuddy" version="1.0"/>
+				<dependency id="TouchScreenBuddy" version="1.0"/>
+				<dependency id="Vector2Extensions" version="1.0.1"/>
+				<dependency id="XmlBuddy" version="1.0"/>
+				<dependency id="SQLiteConnectionBuddy" version="1.0"/>
+				<dependency id="SQLite.Net-PCL" version="3.1.1"/>
+				<dependency id="SQLite.Net.Core-PCL" version="3.1.1"/>
+			</group>
+
+			<!--Win Universal-->
+			<group targetFramework="uap10.0">
+				<dependency id="MonoGame.Framework.WindowsUniversal" version="3.5"/>
+				<dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="5.1"/>
+				<dependency id="FilenameBuddy" version="1.0.1"/>
+				<dependency id="FontBuddy" version="1.0.8"/>
+				<dependency id="GameTimer" version="1.0"/>
+				<dependency id="HadoukInput" version="1.0"/>
+				<dependency id="InputHelper" version="1.0.1"/>
+				<dependency id="MatrixExtensions" version="1.0"/>
+				<dependency id="MenuBuddy" version="1.0"/>
+				<dependency id="MouseBuddy" version="1.0"/>
+				<dependency id="PrimitiveBuddy" version="1.0"/>
+				<dependency id="RandomExtensions.dmanning23" version="1.0"/>
+				<dependency id="ResolutionBuddy" version="1.0"/>
+				<dependency id="StateMachineBuddy" version="1.0"/>
+				<dependency id="TouchScreenBuddy" version="1.0"/>
+				<dependency id="Vector2Extensions" version="1.0.1"/>
+				<dependency id="XmlBuddy" version="1.0"/>
+				<dependency id="SQLiteConnectionBuddy" version="1.0"/>
+				<dependency id="SQLite.Net-PCL" version="3.1.1"/>
+			</group>
+
+			<group targetFramework="net451">
+				<dependency id="MonoGame.Framework.DesktopGL" version="3.5"/>
+				<dependency id="FilenameBuddy" version="1.0.1"/>
+				<dependency id="FontBuddy" version="1.0.8"/>
+				<dependency id="GameTimer" version="1.0"/>
+				<dependency id="HadoukInput" version="1.0"/>
+				<dependency id="InputHelper" version="1.0.1"/>
+				<dependency id="MatrixExtensions" version="1.0"/>
+				<dependency id="MenuBuddy" version="1.0"/>
+				<dependency id="MouseBuddy" version="1.0"/>
+				<dependency id="PrimitiveBuddy" version="1.0"/>
+				<dependency id="RandomExtensions.dmanning23" version="1.0"/>
+				<dependency id="ResolutionBuddy" version="1.0"/>
+				<dependency id="StateMachineBuddy" version="1.0"/>
+				<dependency id="TouchScreenBuddy" version="1.0"/>
+				<dependency id="Vector2Extensions" version="1.0.1"/>
+				<dependency id="XmlBuddy" version="1.0"/>
+				<dependency id="SQLiteConnectionBuddy" version="1.0"/>
+				<dependency id="SQLite.Net-PCL" version="3.1.1"/>
+				<dependency id="SQLite.Net.Core-PCL" version="3.1.1"/>
+				<dependency id="System.Data.SQLite.Core" version="1.0"/>
+			</group>
+
+		</dependencies>
+	</metadata>
+	<files>
+		
+		<!--Xamarin.Android-->
+		<file src="HighScoreBuddy.Android\bin\Release\HighScoreBuddy.Android.pdb" target="lib\MonoAndroid10\HighScoreBuddy.Android.pdb" />
+		<file src="HighScoreBuddy.Android\bin\Release\HighScoreBuddy.Android.dll" target="lib\MonoAndroid10\HighScoreBuddy.Android.dll" />
+
+		<!--Xamarin.iOS Unified-->
+		<file src="HighScoreBuddy.iOS\bin\Release\HighScoreBuddy.iOS.pdb" target="lib\Xamarin.iOS10\HighScoreBuddy.iOS.pdb" />
+		<file src="HighScoreBuddy.iOS\bin\Release\HighScoreBuddy.iOS.dll" target="lib\Xamarin.iOS10\HighScoreBuddy.iOS.dll" />
+
+		<!--Windows Universal-->
+		<file src="HighScoreBuddy.WindowsUniversal\bin\Release\HighScoreBuddy.WindowsUniversal.pdb" target="lib\uap10.0\HighScoreBuddy.WindowsUniversal.pdb" />
+		<file src="HighScoreBuddy.WindowsUniversal\bin\Release\HighScoreBuddy.WindowsUniversal.dll" target="lib\uap10.0\HighScoreBuddy.WindowsUniversal.dll" />
+
+		<!--DesktopGL-->
+		<file src="HighScoreBuddy.DesktopGL\bin\Release\HighScoreBuddy.DesktopGL.pdb" target="lib\net451\HighScoreBuddy.DesktopGL.pdb" />
+		<file src="HighScoreBuddy.DesktopGL\bin\Release\HighScoreBuddy.DesktopGL.dll" target="lib\net451\HighScoreBuddy.DesktopGL.dll" />
+
+	</files>
+</package>
