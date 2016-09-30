@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using RandomExtensions;
 
 namespace HighScoreBuddy
 {
@@ -27,6 +28,18 @@ namespace HighScoreBuddy
 			// Register ourselves to implement the IToastBuddy service.
 			game.Components.Add(this);
 			game.Services.AddService(typeof(IHighScoreTable), this);
+		}
+
+		public void SeedFakeHighScores(string highScoreList)
+		{
+			//add a bunch of fake high scores
+			var rand = new Random();
+			uint score = 100;
+			for (int i = 0; i < 100; i++)
+			{
+				AddHighScore(highScoreList, score, rand.NextWord(3, 3));
+				score += 10;
+			}
 		}
 
 		public void AddHighScore(string highScoreList, uint points, string initials)

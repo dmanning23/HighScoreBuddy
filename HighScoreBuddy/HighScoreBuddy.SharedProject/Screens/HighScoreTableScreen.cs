@@ -1,32 +1,18 @@
 ﻿using FontBuddyLib;
-using HighScoreBuddy;
-using InsertCoinBuddy;
 using MenuBuddy;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using ResolutionBuddy;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
 
 namespace HighScoreBuddy
 {
 	/// <summary>
 	/// This is a screen that shows one of the high scores tables
 	/// </summary>
-	class HighScoreTableScreen : MenuDemoScreen
+	public class HighScoreTableScreen : WidgetScreen
 	{
-		#region fields
-
-		/// <summary>
-		/// A list of all the high scores in the game
-		/// </summary>
-		private List<string> Scores { get; set; }
-
-		/// <summary>
-		/// buddy to draw all the text
-		/// </summary>
-		private FontBuddy ScoresFont;
+		#region Properties
 
 		/// <summary>
 		/// how fast the scores scroll by
@@ -48,27 +34,24 @@ namespace HighScoreBuddy
 		/// </summary>
 		private const float HowLongToDisplayScreen = 25.0f;
 
-		private string ScoreListKey { get; set; }
+		protected string HighScoreList { get; set; }
 
-		#endregion //fields
+		protected int NumHighScores { get; set; }
+
+		private ScrollLayout Scroller { get; set; }
+
+		#endregion //Properties
 
 		#region Initialization
 
 		/// <summary>
 		/// Constructor fills in the menu contents.
 		/// </summary>
-		public HighScoreTableScreen(CreditsManager credits, string scoreList)
-			: base("", @"Sprites\time_of_day_1", credits)
+		public HighScoreTableScreen(string screenTitle, string highScoreList, int num)
+			: base(screenTitle)
 		{
-			ScoresFont = new FontBuddy();
-
-			//move the menu title to the top of the screen
-			MenuTitleOffset = -256;
-
-			//create the list of credits
-			Scores = new List<string>();
-
-			ScoreListKey = scoreList;
+			HighScoreList = highScoreList;
+			NumHighScores = num;
 		}
 
 		/// <summary>
@@ -77,31 +60,88 @@ namespace HighScoreBuddy
 		public override void LoadContent()
 		{
 			base.LoadContent();
-			ScoresFont.Font = ScreenManager.Game.Content.Load<SpriteFont>(@"Fonts\SpicyRice74");
 
-			//get the correct high score list
-			Debug.Assert(null != ScreenManager);
-			FlyTrapScreenManager screens = ScreenManager as FlyTrapScreenManager;
-			Debug.Assert(null != screens);
+			//Get the high scores
+			var highScores = GetHighScores();
 
-			HighScoreList HighScores = screens.HighScores.GetHighScoreList(ScoreListKey);
-			Debug.Assert(null != HighScores);
-
-			//Add "High Scores" to the top of the list
-			Scores.Add(ScoreListKey);
-
-			//add each high score as a menu entry
-			for (int i = 0; i < HighScores.Entries.Count; i++)
+			//Add the scroll layout
+			Scroller = new ScrollLayout()
 			{
-				StringBuilder entryText = new StringBuilder();
-				entryText.Append((i + 1).ToString());
-				entryText.Append(".  ");
-				entryText.Append(HighScores.Entries[i].PlayerName);
-				entryText.Append("  ");
-				entryText.Append(HighScores.Entries[i].Score.ToString());
+				Position = new Point(0, 0),
+				Size = Resolution.ScreenArea.Size.ToVector2(),
+				
+			};
+			AddItem(Scroller);
 
-				Scores.Add(entryText.ToString());
+			//Add the name of the high score list
+			var title = new Label(ScreenName, FontSize.Large)
+			{
+				Vertical = VerticalAlignment.Top, 
+				Horizontal = HorizontalAlignment.Center,
+				Position = new Point(Resolution.ScreenArea.Center.X, Resolution.TitleSafeArea.Top),
+				Transition = new WipeTransitionObject(TransitionWipeType.PopTop)
+			};
+			Scroller.AddItem(title);
+
+			//create the stack layout to hold the scores
+			var scoreStack = new StackLayout()
+			{
+				Vertical = VerticalAlignment.Top,
+				Horizontal = HorizontalAlignment.Center,
+				Position = new Point(Resolution.ScreenArea.Center.X, title.Rect.Bottom),
+				Alignment = StackAlignment.Top
+			};
+
+			//add each high score
+			int index = 1;
+			foreach (var highScore in highScores)
+			{
+				//add the number to the left
+				var number = new Label(index.ToString() + ".", FontSize.Medium)
+				{
+					Horizontal = HorizontalAlignment.Left,
+					Vertical = VerticalAlignment.Top
+				};
+
+				//add the initials in teh center
+				var initials = new Label(highScore.Item1, FontSize.Medium)
+				{
+					Horizontal = HorizontalAlignment.Center,
+					Vertical = VerticalAlignment.Top
+				};
+
+				//add the score to the right
+				var score = new Label(highScore.Item1, FontSize.Medium)
+				{
+					Horizontal = HorizontalAlignment.Right,
+					Vertical = VerticalAlignment.Top
+				};
+
+				//create the layout item
+				var scoreLayout = new RelativeLayout()
+				{
+					Vertical = VerticalAlignment.Top,
+					Horizontal = HorizontalAlignment.Center,
+					Size = new Vector2(Resolution.TitleSafeArea.Width, initials.Rect.Height)
+				};
+
+				//add all the items to the layout
+				scoreLayout.AddItem(number);
+				scoreLayout.AddItem(initials);
+				scoreLayout.AddItem(score);
+
+				//add to hte score stack
+				scoreStack.AddItem(scoreLayout);
+
+				//make sure to increment the index
+				index++;
 			}
+		}
+
+		protected virtual IEnumerable<Tuple<string, uint>> GetHighScores()
+		{
+			var highScoreComponent = ScreenManager.Game.Services.GetService<IHighScoreTable>();
+			return highScoreComponent.GetHighScoreList(HighScoreList, NumHighScores);
 		}
 
 		#endregion //Initialization
@@ -111,6 +151,24 @@ namespace HighScoreBuddy
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
 		{
 			base.Update(gameTime, otherScreenHasFocus, coveredByOtherScreen);
+
+			//the position to start drawing text
+			Vector2 textPos = Scroller.ScrollPosition;
+
+			//scroll the text up 
+			if (TimeSinceInput.CurrentTime > InitialPause)
+			{
+				if (TimeSinceInput.CurrentTime >= (HowLongToDisplayScreen - TopScorePause))
+				{
+					textPos.Y += ((HowLongToDisplayScreen - TopScorePause) - InitialPause) * (ScrollSpeed * Time.TimeDelta);
+				}
+				else
+				{
+					textPos.Y += (TimeSinceInput.CurrentTime - InitialPause) * (ScrollSpeed * Time.TimeDelta);
+				}
+			}
+
+			Scroller.ScrollPosition = textPos;
 
 			//if all the credits are finished displaying, exit this screen
 			if (TimeSinceInput.CurrentTime > HowLongToDisplayScreen)
@@ -124,42 +182,12 @@ namespace HighScoreBuddy
 		/// </summary>
 		public override void Draw(GameTime gameTime)
 		{
-			base.Draw(gameTime);
-
-			//the position to start drawing text
-			Vector2 textPos = new Vector2(MenuEntryPositionX(), Resolution.TitleSafeArea.Bottom * 0.6f);
-
-			//scroll the text up 
-			if (TimeSinceInput.CurrentTime > InitialPause)
-			{
-				if (TimeSinceInput.CurrentTime >= (HowLongToDisplayScreen - TopScorePause))
-				{
-					textPos.Y += ((HowLongToDisplayScreen - TopScorePause) - InitialPause) * ScrollSpeed;
-				}
-				else
-				{
-					textPos.Y += (TimeSinceInput.CurrentTime - InitialPause) * ScrollSpeed;
-				}
-			}
-
-
-			//Drwa all the credit text
+			//fade the background
 			ScreenManager.SpriteBatchBegin();
-			for (int i = Scores.Count - 1; i >= 0 ; i--)
-			{
-				string text = Scores[i];
-				ScoresFont.Write(text, textPos, Justify.Center, 1.0f, FadeAlphaDuringTransition(Color.White), ScreenManager.SpriteBatch, gameTime.TotalGameTime.TotalSeconds);
-				textPos.Y -= ScoresFont.Font.LineSpacing * 0.9f;
-			}
+			FadeBackground();
 			ScreenManager.SpriteBatchEnd();
-		}
 
-		/// <summary>
-		/// Handler for when the user has cancelled the menu.
-		/// </summary>
-		protected override void OnCancel(PlayerIndex playerIndex)
-		{
-			//overloaded so the player can't exit out of this screen
+			base.Draw(gameTime);
 		}
 
 		#endregion //Update and Draw
