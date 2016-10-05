@@ -95,7 +95,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.36": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -2450,12 +2450,13 @@
           }
         }
       },
-      "TouchScreenBuddy/1.0.0": {
+      "TouchScreenBuddy/1.0.6": {
         "type": "package",
         "dependencies": {
           "InputHelper": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "MonoGame.Framework.WindowsUniversal": "3.5.0",
+          "PrimitiveBuddy": "1.0.0",
           "SharpDX": "[3.0.0]",
           "SharpDX.Direct2D1": "[3.0.0]",
           "SharpDX.Direct3D11": "[3.0.0]"
@@ -2592,7 +2593,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.36": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -5055,12 +5056,13 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "TouchScreenBuddy/1.0.0": {
+      "TouchScreenBuddy/1.0.6": {
         "type": "package",
         "dependencies": {
           "InputHelper": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "MonoGame.Framework.WindowsUniversal": "3.5.0",
+          "PrimitiveBuddy": "1.0.0",
           "SharpDX": "[3.0.0]",
           "SharpDX.Direct2D1": "[3.0.0]",
           "SharpDX.Direct3D11": "[3.0.0]"
@@ -5197,7 +5199,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.36": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -7699,12 +7701,13 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "TouchScreenBuddy/1.0.0": {
+      "TouchScreenBuddy/1.0.6": {
         "type": "package",
         "dependencies": {
           "InputHelper": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "MonoGame.Framework.WindowsUniversal": "3.5.0",
+          "PrimitiveBuddy": "1.0.0",
           "SharpDX": "[3.0.0]",
           "SharpDX.Direct2D1": "[3.0.0]",
           "SharpDX.Direct3D11": "[3.0.0]"
@@ -7841,7 +7844,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.36": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -10313,12 +10316,13 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "TouchScreenBuddy/1.0.0": {
+      "TouchScreenBuddy/1.0.6": {
         "type": "package",
         "dependencies": {
           "InputHelper": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "MonoGame.Framework.WindowsUniversal": "3.5.0",
+          "PrimitiveBuddy": "1.0.0",
           "SharpDX": "[3.0.0]",
           "SharpDX.Direct2D1": "[3.0.0]",
           "SharpDX.Direct3D11": "[3.0.0]"
@@ -10455,7 +10459,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.36": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -12966,12 +12970,13 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "TouchScreenBuddy/1.0.0": {
+      "TouchScreenBuddy/1.0.6": {
         "type": "package",
         "dependencies": {
           "InputHelper": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "MonoGame.Framework.WindowsUniversal": "3.5.0",
+          "PrimitiveBuddy": "1.0.0",
           "SharpDX": "[3.0.0]",
           "SharpDX.Direct2D1": "[3.0.0]",
           "SharpDX.Direct3D11": "[3.0.0]"
@@ -13108,7 +13113,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.36": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -15580,12 +15585,13 @@
           "lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "TouchScreenBuddy/1.0.0": {
+      "TouchScreenBuddy/1.0.6": {
         "type": "package",
         "dependencies": {
           "InputHelper": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "MonoGame.Framework.WindowsUniversal": "3.5.0",
+          "PrimitiveBuddy": "1.0.0",
           "SharpDX": "[3.0.0]",
           "SharpDX.Direct2D1": "[3.0.0]",
           "SharpDX.Direct3D11": "[3.0.0]"
@@ -15722,7 +15728,7 @@
           "lib/uap10.0/MatrixExtensions.WindowsUniversal.dll": {}
         }
       },
-      "MenuBuddy/1.0.32": {
+      "MenuBuddy/1.0.36": {
         "type": "package",
         "dependencies": {
           "FilenameBuddy": "1.0.1",
@@ -18233,12 +18239,13 @@
           "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll": {}
         }
       },
-      "TouchScreenBuddy/1.0.0": {
+      "TouchScreenBuddy/1.0.6": {
         "type": "package",
         "dependencies": {
           "InputHelper": "1.0.0",
           "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0",
           "MonoGame.Framework.WindowsUniversal": "3.5.0",
+          "PrimitiveBuddy": "1.0.0",
           "SharpDX": "[3.0.0]",
           "SharpDX.Direct2D1": "[3.0.0]",
           "SharpDX.Direct3D11": "[3.0.0]"
@@ -18380,11 +18387,11 @@
         "lib/uap10.0/MatrixExtensions.WindowsUniversal.pdb"
       ]
     },
-    "MenuBuddy/1.0.32": {
-      "sha512": "P+QT1ULUwUFlB0pdAombm/y+TfPA1qOBoMIeG+WstAehSPavlHe5eUTx/Nqu7/4bO4Vc05W3w/MGe1B2E7K4/g==",
+    "MenuBuddy/1.0.36": {
+      "sha512": "Hdn9u8t1g8H/GCLdIV1s0O0nD7DEuBvGwtZMn+LN8gYV1ds7/y2UtvuOp7wiwLUgHq/injmba4eTTkFEJ4nCvg==",
       "type": "package",
       "files": [
-        "MenuBuddy.1.0.32.nupkg.sha512",
+        "MenuBuddy.1.0.36.nupkg.sha512",
         "MenuBuddy.nuspec",
         "lib/MonoAndroid10/MenuBuddy.Android.dll",
         "lib/MonoAndroid10/MenuBuddy.Android.pdb",
@@ -24643,11 +24650,11 @@
         "runtimes/aot/lib/netcore50/System.Xml.XmlSerializer.dll"
       ]
     },
-    "TouchScreenBuddy/1.0.0": {
-      "sha512": "i6gDcAgF9J9+RfX3/kR+htQ8gPvwFnwvsNMAdJ/NLJuvbeLC/QmX6HhHnWGmgd9b6lMzZ5MSkwV4lU7PtVhdBQ==",
+    "TouchScreenBuddy/1.0.6": {
+      "sha512": "LUhcetjg7w6Z+sBinpWYpF3wMZ+6fKiuIGPMyVb+ginjS9eDM8iJJ17qlNaSUrQx7J9TwJDEdp0UgSFs3bEo2w==",
       "type": "package",
       "files": [
-        "TouchScreenBuddy.1.0.0.nupkg.sha512",
+        "TouchScreenBuddy.1.0.6.nupkg.sha512",
         "TouchScreenBuddy.nuspec",
         "lib/MonoAndroid10/TouchScreenBuddy.Android.dll",
         "lib/MonoAndroid10/TouchScreenBuddy.Android.pdb",
@@ -24700,7 +24707,7 @@
       "HadoukInput >= 1.0.2",
       "InputHelper >= 1.0.17",
       "MatrixExtensions >= 1.0.1",
-      "MenuBuddy >= 1.0.32",
+      "MenuBuddy >= 1.0.36",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.2.2",
       "MonoGame.Framework.WindowsUniversal >= 3.5.1.1679",
       "MouseBuddy >= 1.0.7",
@@ -24708,6 +24715,8 @@
       "RandomExtensions.dmanning23 >= 1.0.2",
       "SQLiteConnectionBuddy >= 1.0.1",
       "SQLiteNetExtensions >= 1.3.0",
+      "TouchScreenBuddy >= 1.0.6",
+      "Vector2Extensions >= 1.0.1",
       "XmlBuddy >= 1.0.6"
     ],
     "UAP,Version=v10.0": []

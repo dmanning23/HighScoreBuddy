@@ -17,22 +17,12 @@ namespace HighScoreBuddy
 		/// <summary>
 		/// how fast the scores scroll by
 		/// </summary>
-		private const float ScrollSpeed = 90.0f;
+		private const float ScrollSpeed = 180f;
 
 		/// <summary>
 		/// how long the scores are displayed before they start scrolling
 		/// </summary>
-		private const float InitialPause = 1.0f;
-
-		/// <summary>
-		/// how long to pause on the top score before screen exits
-		/// </summary>
-		private const float TopScorePause = 2.6f;
-
-		/// <summary>
-		/// how long to display this screen before popping it off
-		/// </summary>
-		private const float HowLongToDisplayScreen = 25.0f;
+		private const float InitialPause = 1.5f;
 
 		protected string HighScoreList { get; set; }
 
@@ -64,31 +54,32 @@ namespace HighScoreBuddy
 			//Get the high scores
 			var highScores = GetHighScores();
 
-			//Add the scroll layout
-			Scroller = new ScrollLayout()
-			{
-				Position = new Point(0, 0),
-				Size = Resolution.ScreenArea.Size.ToVector2(),
-				
-			};
-			AddItem(Scroller);
-
 			//Add the name of the high score list
 			var title = new Label(ScreenName, FontSize.Large)
 			{
-				Vertical = VerticalAlignment.Top, 
+				Vertical = VerticalAlignment.Top,
 				Horizontal = HorizontalAlignment.Center,
 				Position = new Point(Resolution.ScreenArea.Center.X, Resolution.TitleSafeArea.Top),
 				Transition = new WipeTransitionObject(TransitionWipeType.PopTop)
 			};
-			Scroller.AddItem(title);
+			AddItem(title);
+
+			//Add the scroll layout
+			Scroller = new ScrollLayout()
+			{
+				Position = new Point(0, title.Rect.Bottom),
+				Size = new Vector2(Resolution.ScreenArea.Width, Resolution.ScreenArea.Height - title.Rect.Bottom),
+				Vertical = VerticalAlignment.Top,
+				Horizontal = HorizontalAlignment.Left
+			};
+			AddItem(Scroller);
 
 			//create the stack layout to hold the scores
 			var scoreStack = new StackLayout()
 			{
 				Vertical = VerticalAlignment.Top,
 				Horizontal = HorizontalAlignment.Center,
-				Position = new Point(Resolution.ScreenArea.Center.X, title.Rect.Bottom),
+				Position = new Point(Resolution.ScreenArea.Center.X, 0),
 				Alignment = StackAlignment.Top
 			};
 
@@ -111,18 +102,31 @@ namespace HighScoreBuddy
 				};
 
 				//add the score to the right
-				var score = new Label(highScore.Item1, FontSize.Medium)
+				var score = new Label(highScore.Item2.ToString(), FontSize.Medium)
 				{
 					Horizontal = HorizontalAlignment.Right,
 					Vertical = VerticalAlignment.Top
 				};
+
+				//If this is the top score, use a big rainbow font
+				if (index == 1)
+				{
+					//use a big gay rainbow font for teh top score
+					var topScoreFont = new RainbowTextBuddy();
+					topScoreFont.Font = StyleSheet.Instance().MediumNeutralFont.Font;
+
+					number.Font = topScoreFont;
+					initials.Font = topScoreFont;
+					score.Font = topScoreFont;
+				}
 
 				//create the layout item
 				var scoreLayout = new RelativeLayout()
 				{
 					Vertical = VerticalAlignment.Top,
 					Horizontal = HorizontalAlignment.Center,
-					Size = new Vector2(Resolution.TitleSafeArea.Width, initials.Rect.Height)
+					Size = new Vector2(Resolution.TitleSafeArea.Width, initials.Rect.Height),
+					Layer = index
 				};
 
 				//add all the items to the layout
@@ -136,6 +140,11 @@ namespace HighScoreBuddy
 				//make sure to increment the index
 				index++;
 			}
+
+			Scroller.AddItem(scoreStack);
+
+			//Scroll all the way to the bottom
+			Scroller.ScrollPosition = Scroller.MaxScroll;
 		}
 
 		protected virtual IEnumerable<Tuple<string, uint>> GetHighScores()
@@ -158,22 +167,8 @@ namespace HighScoreBuddy
 			//scroll the text up 
 			if (TimeSinceInput.CurrentTime > InitialPause)
 			{
-				if (TimeSinceInput.CurrentTime >= (HowLongToDisplayScreen - TopScorePause))
-				{
-					textPos.Y += ((HowLongToDisplayScreen - TopScorePause) - InitialPause) * (ScrollSpeed * Time.TimeDelta);
-				}
-				else
-				{
-					textPos.Y += (TimeSinceInput.CurrentTime - InitialPause) * (ScrollSpeed * Time.TimeDelta);
-				}
-			}
-
-			Scroller.ScrollPosition = textPos;
-
-			//if all the credits are finished displaying, exit this screen
-			if (TimeSinceInput.CurrentTime > HowLongToDisplayScreen)
-			{
-				ExitScreen();
+				textPos.Y -= (ScrollSpeed * Time.TimeDelta);
+				Scroller.ScrollPosition = textPos;
 			}
 		}
 
