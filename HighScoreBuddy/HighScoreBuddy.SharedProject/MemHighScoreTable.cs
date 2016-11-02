@@ -1,9 +1,8 @@
 ﻿using HighScoreBuddy.Models;
-using Microsoft.Xna.Framework;
+using RandomExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using RandomExtensions;
 
 namespace HighScoreBuddy
 {
@@ -11,7 +10,7 @@ namespace HighScoreBuddy
 	/// A list of high scores that only live in memory.
 	/// Obviously these high scores are reset every time the game restarts.
 	/// </summary>
-	public class MemHighScoreTable : DrawableGameComponent, IHighScoreTable
+	public class MemHighScoreTable : IHighScoreTable
 	{
 		#region Properties
 
@@ -21,13 +20,13 @@ namespace HighScoreBuddy
 
 		#region Methods
 
-		public MemHighScoreTable(Game game) : base(game)
+		public MemHighScoreTable()
 		{
 			HighScoreLists = new Dictionary<string, List<Score>>();
+		}
 
-			// Register ourselves to implement the IToastBuddy service.
-			game.Components.Add(this);
-			game.Services.AddService(typeof(IHighScoreTable), this);
+		public void InitializeDatabase()
+		{
 		}
 
 		public void SeedFakeHighScores(string highScoreList)
@@ -105,6 +104,12 @@ namespace HighScoreBuddy
 			}
 
 			return HighScoreLists[highScoreList];
+		}
+
+		public void ClearHighScoreList(string highScoreList)
+		{
+			var scores = CreateOrGetHighScoreList(highScoreList);
+			scores.Clear();
 		}
 
 		#endregion //Methods

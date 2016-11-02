@@ -7,8 +7,13 @@ namespace HighScoreBuddy
 	/// <summary>
 	/// The interface for a set of high score lists
 	/// </summary>
-	public interface IHighScoreTable : IGameComponent
+	public interface IHighScoreTable
 	{
+		/// <summary>
+		/// Setup the high score table at game startup.
+		/// </summary>
+		void InitializeDatabase();
+
 		/// <summary>
 		/// Add a high score to the list of all high scores.
 		/// </summary>
@@ -58,5 +63,10 @@ namespace HighScoreBuddy
 		/// <returns></returns>
 		IEnumerable<Tuple<string, uint>> GetDailyHighScoreList(string highScoreList, int num);
 
+		/// <summary>
+		/// Remove all the entries from a high score list.
+		/// </summary>
+		/// <param name="highScoreList">the list to clear out.</param>
+		void ClearHighScoreList(string highScoreList);
 	}
 }

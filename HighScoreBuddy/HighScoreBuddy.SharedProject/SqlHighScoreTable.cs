@@ -1,5 +1,4 @@
 ﻿using HighScoreBuddy.Models;
-using Microsoft.Xna.Framework;
 using SQLite.Net;
 using SQLiteConnectionBuddy;
 using System;
@@ -11,7 +10,7 @@ namespace HighScoreBuddy
 	/// <summary>
 	/// A high score table that is persisted to SQLite
 	/// </summary>
-	public abstract class SqlHighScoreTable : DrawableGameComponent, IHighScoreTable
+	public class SqlHighScoreTable : IHighScoreTable
 	{
 		#region Fields
 
@@ -29,18 +28,12 @@ namespace HighScoreBuddy
 		/// <summary>
 		/// hello standard constructor!
 		/// </summary>
-		public SqlHighScoreTable(Game game)
-			: base(game)
+		public SqlHighScoreTable()
 		{
-			// Register ourselves to implement the IToastBuddy service.
-			game.Components.Add(this);
-			game.Services.AddService(typeof(IHighScoreTable), this);
 		}
 
-		protected override void LoadContent()
+		public void InitializeDatabase()
 		{
-			base.LoadContent();
-
 			//load settingsfile
 			using (var db = SQLiteConnectionHelper.GetConnection(_db))
 			{
@@ -74,22 +67,55 @@ namespace HighScoreBuddy
 
 		public IEnumerable<Tuple<string, uint>> GetDailyHighScoreList(string highScoreList, int num)
 		{
-			throw new NotImplementedException();
+			lock (locker)
+			{
+				using (var connection = SQLiteConnectionHelper.GetConnection(_db))
+				{
+					//get the scores from 
+					var scores = connection.Query<Score>(
+						@"select top ? score from Scores as s
+						inner join Days as d on s.DayId = d.Id
+						inner join HighScoreList as hsl on s.HighScoreListId = hsl.Id
+						where d.Date = ?
+						and hsl.Name = ?
+						order by s.Points desc", num, highScoreList, DateTime.Now.Date.ToString());
+
+					//convert to tuples
+					return scores.Select(x => new Tuple<string, uint>(x.Initials, x.Points));
+				}
+			}
 		}
 
 		public IEnumerable<Tuple<string, uint>> GetHighScoreList(string highScoreList, int num)
 		{
-			throw new NotImplementedException();
+			lock (locker)
+			{
+				using (var connection = SQLiteConnectionHelper.GetConnection(_db))
+				{
+					//get the scores from 
+					var scores = connection.Query<Score>(
+						@"select * from Scores as s
+						inner join HighScoreList as hsl on s.HighScoreListId = hsl.Id
+						where hsl.Name = ?
+						order by s.Points desc
+						limit ?", highScoreList, num);
+
+					//convert to tuples
+					return scores.Select(x => new Tuple<string, uint>(x.Initials, x.Points));
+				}
+			}
 		}
 
 		public bool IsHighScore(string highScoreList, uint points, int num)
 		{
-			throw new NotImplementedException();
+			var highscores = GetHighScoreList(highScoreList, num);
+			return highscores.Any(x => x.Item2 < points);
 		}
 
 		public bool IsDailyHighScore(string highScoreList, uint points, int num)
 		{
-			throw new NotImplementedException();
+			var highscores = GetDailyHighScoreList(highScoreList, num);
+			return highscores.Any(x => x.Item2 < points);
 		}
 
 		public void TruncateHighScoreList(string highScoreList, int num)
@@ -128,6 +154,21 @@ namespace HighScoreBuddy
 			}
 
 			return day.Id;
+		}
+
+		public void ClearHighScoreList(string highScoreList)
+		{
+			lock (locker)
+			{
+				using (var connection = SQLiteConnectionHelper.GetConnection(_db))
+				{
+					connection.Execute(
+						@"delete from Scores 
+						where HighScoreListId IN ( 
+							select Id from HighScoreList
+							where Name = ? )", highScoreList);
+				}
+			}
 		}
 
 		#endregion //Methods

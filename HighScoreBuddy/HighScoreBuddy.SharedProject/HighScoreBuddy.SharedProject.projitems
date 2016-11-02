@@ -17,5 +17,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Day.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Score.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\HighScoreList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HighScoreTableComponent.cs" />
   </ItemGroup>
 </Project>
