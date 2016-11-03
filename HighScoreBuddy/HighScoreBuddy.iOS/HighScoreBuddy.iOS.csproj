@@ -92,7 +92,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="SQLiteConnectionBuddy.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLiteConnectionBuddy.1.0.2\lib\Xamarin.iOS10\SQLiteConnectionBuddy.iOS.dll</HintPath>
+      <HintPath>..\packages\SQLiteConnectionBuddy.1.0.4\lib\Xamarin.iOS10\SQLiteConnectionBuddy.iOS.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SQLiteNetExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">

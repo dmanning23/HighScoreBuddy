@@ -98,7 +98,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="SQLiteConnectionBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLiteConnectionBuddy.1.0.2\lib\MonoAndroid10\SQLiteConnectionBuddy.Android.dll</HintPath>
+      <HintPath>..\packages\SQLiteConnectionBuddy.1.0.4\lib\MonoAndroid10\SQLiteConnectionBuddy.Android.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SQLiteNetExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
