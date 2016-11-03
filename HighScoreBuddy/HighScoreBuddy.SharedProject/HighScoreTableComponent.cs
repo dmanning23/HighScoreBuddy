@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HighScoreBuddy.SharedProject
+namespace HighScoreBuddy
 {
 	public class HighScoreTableComponent : DrawableGameComponent, IHighScoreTable
 	{
