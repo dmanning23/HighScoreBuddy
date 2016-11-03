@@ -59,12 +59,23 @@ namespace HighScoreBuddy.Tests
 		[Test]
 		public void FullTable_NotHighScore()
 		{
-			for (uint i = 0; i < 10; i++)
+			for (uint i = 10; i < 20; i++)
 			{
 				_highScores.AddHighScore(tableName, i * 100, i.ToString());
 			}
 
-			Assert.IsTrue(_highScores.IsHighScore(tableName, 10, 10));
+			Assert.IsFalse(_highScores.IsHighScore(tableName, 10, 10));
+		}
+
+		[Test]
+		public void FullTable_NotHighScore_2()
+		{
+			for (uint i = 10; i < 40; i++)
+			{
+				_highScores.AddHighScore(tableName, i * 100, i.ToString());
+			}
+
+			Assert.IsFalse(_highScores.IsHighScore(tableName, 100, 10));
 		}
 	}
 }

@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GetHighScoreListTests.cs" />
+    <Compile Include="IsDailyHighScoreTests.cs" />
     <Compile Include="IsHighScoreTests.cs" />
     <Compile Include="SqlAddTests.cs" />
     <Compile Include="SqlClearTests.cs" />
