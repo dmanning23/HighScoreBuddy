@@ -39,9 +39,9 @@ namespace HighScoreBuddy.SharedProject
 			_highScoreTable.InitializeDatabase();
 		}
 
-		public void AddHighScore(string highScoreList, uint points, string initials)
+		public void AddHighScore(string highScoreList, uint points, string initials, DateTime? date = null)
 		{
-			_highScoreTable.AddHighScore(highScoreList, points, initials);
+			_highScoreTable.AddHighScore(highScoreList, points, initials, date);
 		}
 
 		public void ClearHighScoreList(string highScoreList)

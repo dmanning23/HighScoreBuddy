@@ -44,14 +44,14 @@ namespace HighScoreBuddy
 			}
 		}
 
-		public void AddHighScore(string highScoreList, uint points, string initials)
+		public void AddHighScore(string highScoreList, uint points, string initials, DateTime? date = null)
 		{
 			lock (locker)
 			{
 				using (var connection = SQLiteConnectionHelper.GetConnection(_db))
 				{
 					var highScoreListId = SaveHighScoreList(connection, highScoreList);
-					var dayId = SaveDay(connection);
+					var dayId = SaveDay(connection, date);
 
 					//Add the new high score
 					connection.Insert(new Score
@@ -73,12 +73,13 @@ namespace HighScoreBuddy
 				{
 					//get the scores from 
 					var scores = connection.Query<Score>(
-						@"select top ? score from Scores as s
+						@"select * from Scores as s
 						inner join Days as d on s.DayId = d.Id
 						inner join HighScoreList as hsl on s.HighScoreListId = hsl.Id
 						where d.Date = ?
 						and hsl.Name = ?
-						order by s.Points desc", num, highScoreList, DateTime.Now.Date.ToString());
+						order by s.Points desc
+						limit ?", DateTime.Now.Date.ToString(), highScoreList, num);
 
 					//convert to tuples
 					return scores.Select(x => new Tuple<string, uint>(x.Initials, x.Points));
@@ -109,13 +110,17 @@ namespace HighScoreBuddy
 		public bool IsHighScore(string highScoreList, uint points, int num)
 		{
 			var highscores = GetHighScoreList(highScoreList, num);
-			return highscores.Any(x => x.Item2 < points);
+
+			//are there any high scores, or any that are lower than this one?
+			return highscores.Count() < num || highscores.Any(x => x.Item2 < points);
 		}
 
 		public bool IsDailyHighScore(string highScoreList, uint points, int num)
 		{
 			var highscores = GetDailyHighScoreList(highScoreList, num);
-			return highscores.Any(x => x.Item2 < points);
+
+			//are there any high scores, or any that are lower than this one?
+			return highscores.Count() < num || highscores.Any(x => x.Item2 < points);
 		}
 
 		public void TruncateHighScoreList(string highScoreList, int num)
@@ -139,16 +144,19 @@ namespace HighScoreBuddy
 			return scores.Id;
 		}
 
-		private int SaveDay(SQLiteConnection connection)
+		private int SaveDay(SQLiteConnection connection, DateTime? date)
 		{
-			//get the day
-			var date = DateTime.Now.Date.ToString();
-			var day = connection.Table<Day>().FirstOrDefault(x => x.Date == date);
+			//get the specified day, or todays date if none specified
+			var dateString = date.HasValue ? date.Value.ToString() : DateTime.Now.Date.ToString();
+
+			//check if that day is in the db or not
+			var day = connection.Table<Day>().FirstOrDefault(x => x.Date == dateString);
 			if (null == day)
 			{
+				//add the day to the db
 				day = new Day
 				{
-					Date = date
+					Date = dateString
 				};
 				connection.Insert(day);
 			}

@@ -20,7 +20,8 @@ namespace HighScoreBuddy
 		/// <param name="highScoreList">The list to add this score to</param>
 		/// <param name="points">The number of points that were scored</param>
 		/// <param name="initials">Player initials</param>
-		void AddHighScore(string highScoreList, uint points, string initials);
+		/// <param name="date">The date to add the high score. null to use today's date</param>
+		void AddHighScore(string highScoreList, uint points, string initials, DateTime? date = null);
 
 		/// <summary>
 		/// Check if the player got a high score

@@ -41,7 +41,7 @@ namespace HighScoreBuddy
 			}
 		}
 
-		public void AddHighScore(string highScoreList, uint points, string initials)
+		public void AddHighScore(string highScoreList, uint points, string initials, DateTime? date = null)
 		{
 			var scores = CreateOrGetHighScoreList(highScoreList);
 
