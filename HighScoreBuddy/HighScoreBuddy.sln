@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighScoreBuddy.DesktopGL", "HighScoreBuddy.DesktopGL\HighScoreBuddy.DesktopGL.csproj", "{2AE0A65F-3845-406E-9BC2-9A57329A5B05}"
 EndProject
@@ -28,6 +28,7 @@ Global
 		HighScoreBuddy.SharedProject\HighScoreBuddy.SharedProject.projitems*{700cd0b2-3764-4732-ae1c-9db0b79e401b}*SharedItemsImports = 4
 		HighScoreBuddy.SharedProject\HighScoreBuddy.SharedProject.projitems*{c75fa66b-1b33-49a5-a6aa-d638e6525cf9}*SharedItemsImports = 4
 		HighScoreBuddy.SharedProject\HighScoreBuddy.SharedProject.projitems*{d0f7405f-f843-4bbb-b5e7-6828cb70a470}*SharedItemsImports = 13
+		HighScoreBuddy.SharedProject\HighScoreBuddy.SharedProject.projitems*{d511cd63-4a81-4f3b-b3f6-8ca61eafed89}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

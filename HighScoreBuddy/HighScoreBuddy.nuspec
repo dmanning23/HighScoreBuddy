@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
 	<metadata>
 		<id>HighScoreBuddy</id>
-		<version>1.0.17</version>
+		<version>1.0.18</version>
 		<title>HighScoreBuddy</title>
 		<authors>dmanning23</authors>
 		<owners>dmanning23</owners>
@@ -62,7 +62,8 @@
 			</group>
 
 			<!--Win Universal-->
-			<group targetFramework="uap10.0">
+			<!--
+      <group targetFramework="uap10.0">
 				<dependency id="MonoGame.Framework.WindowsUniversal" version="3.5"/>
 				<dependency id="Microsoft.NETCore.UniversalWindowsPlatform" version="5.1"/>
 				<dependency id="FilenameBuddy" version="1.0.1"/>
@@ -83,6 +84,7 @@
 				<dependency id="SQLiteConnectionBuddy" version="1.0"/>
 				<dependency id="SQLite.Net-PCL" version="3.1.1"/>
 			</group>
+      -->
 
 			<group targetFramework="net451">
 				<dependency id="MonoGame.Framework.DesktopGL" version="3.5"/>
@@ -120,8 +122,10 @@
 		<file src="HighScoreBuddy.iOS\bin\Release\HighScoreBuddy.iOS.dll" target="lib\Xamarin.iOS10\HighScoreBuddy.iOS.dll" />
 
 		<!--Windows Universal-->
-		<file src="HighScoreBuddy.WindowsUniversal\bin\Release\HighScoreBuddy.WindowsUniversal.pdb" target="lib\uap10.0\HighScoreBuddy.WindowsUniversal.pdb" />
+		<!--
+    <file src="HighScoreBuddy.WindowsUniversal\bin\Release\HighScoreBuddy.WindowsUniversal.pdb" target="lib\uap10.0\HighScoreBuddy.WindowsUniversal.pdb" />
 		<file src="HighScoreBuddy.WindowsUniversal\bin\Release\HighScoreBuddy.WindowsUniversal.dll" target="lib\uap10.0\HighScoreBuddy.WindowsUniversal.dll" />
+    -->
 
 		<!--DesktopGL-->
 		<file src="HighScoreBuddy.DesktopGL\bin\Release\HighScoreBuddy.DesktopGL.pdb" target="lib\net451\HighScoreBuddy.DesktopGL.pdb" />

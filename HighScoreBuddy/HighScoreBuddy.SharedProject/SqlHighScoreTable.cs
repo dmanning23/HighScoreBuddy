@@ -1,5 +1,5 @@
 ﻿using HighScoreBuddy.Models;
-using SQLite.Net;
+using SQLite;
 using SQLiteConnectionBuddy;
 using System;
 using System.Collections.Generic;

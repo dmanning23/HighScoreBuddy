@@ -60,7 +60,7 @@ namespace HighScoreBuddy
 				Vertical = VerticalAlignment.Top,
 				Horizontal = HorizontalAlignment.Center,
 				Position = new Point(Resolution.ScreenArea.Center.X, Resolution.TitleSafeArea.Top),
-				Transition = new WipeTransitionObject(TransitionWipeType.PopTop)
+				TransitionObject = new WipeTransitionObject(TransitionWipeType.PopTop)
 			};
 			AddItem(title);
 
