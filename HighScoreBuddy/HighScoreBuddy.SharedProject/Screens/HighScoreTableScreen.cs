@@ -1,6 +1,7 @@
 ﻿using FontBuddyLib;
 using MenuBuddy;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using ResolutionBuddy;
 using System;
 using System.Collections.Generic;
@@ -55,7 +56,7 @@ namespace HighScoreBuddy
 			var highScores = GetHighScores();
 
 			//Add the name of the high score list
-			var title = new Label(ScreenName, FontSize.Large)
+			var title = new Label(ScreenName, Content, FontSize.Large)
 			{
 				Vertical = VerticalAlignment.Top,
 				Horizontal = HorizontalAlignment.Center,
@@ -88,21 +89,21 @@ namespace HighScoreBuddy
 			foreach (var highScore in highScores)
 			{
 				//add the number to the left
-				var number = new Label(index.ToString() + ".", FontSize.Medium)
+				var number = new Label(index.ToString() + ".", Content, FontSize.Medium)
 				{
 					Horizontal = HorizontalAlignment.Left,
 					Vertical = VerticalAlignment.Top
 				};
 
 				//add the initials in teh center
-				var initials = new Label(highScore.Item1, FontSize.Medium)
+				var initials = new Label(highScore.Item1, Content, FontSize.Medium)
 				{
 					Horizontal = HorizontalAlignment.Center,
 					Vertical = VerticalAlignment.Top
 				};
 
 				//add the score to the right
-				var score = new Label(highScore.Item2.ToString(), FontSize.Medium)
+				var score = new Label(highScore.Item2.ToString(), Content, FontSize.Medium)
 				{
 					Horizontal = HorizontalAlignment.Right,
 					Vertical = VerticalAlignment.Top
@@ -113,7 +114,7 @@ namespace HighScoreBuddy
 				{
 					//use a big gay rainbow font for teh top score
 					var topScoreFont = new RainbowTextBuddy();
-					topScoreFont.Font = StyleSheet.Instance().MediumNeutralFont.Font;
+					topScoreFont.Font = Content.Load<SpriteFont>(StyleSheet.MediumFontResource);
 
 					number.Font = topScoreFont;
 					initials.Font = topScoreFont;

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
 	<metadata>
 		<id>HighScoreBuddy</id>
-		<version>1.0.19</version>
+		<version>1.0.20</version>
 		<title>HighScoreBuddy</title>
 		<authors>dmanning23</authors>
 		<owners>dmanning23</owners>
@@ -85,7 +85,7 @@
       -->
 
 			<group targetFramework="net451">
-				<dependency id="MonoGame.Framework.DesktopGL" version="3.5"/>
+				<dependency id="MonoGame.Framework.WindowsDX" version="3.5"/>
 				<dependency id="FilenameBuddy" version="1.0.1"/>
 				<dependency id="FontBuddy" version="1.0.8"/>
 				<dependency id="GameTimer" version="1.0"/>
@@ -123,9 +123,9 @@
 		<file src="HighScoreBuddy.WindowsUniversal\bin\Release\HighScoreBuddy.WindowsUniversal.dll" target="lib\uap10.0\HighScoreBuddy.WindowsUniversal.dll" />
     -->
 
-		<!--DesktopGL-->
-		<file src="HighScoreBuddy.DesktopGL\bin\Release\HighScoreBuddy.DesktopGL.pdb" target="lib\net451\HighScoreBuddy.DesktopGL.pdb" />
-		<file src="HighScoreBuddy.DesktopGL\bin\Release\HighScoreBuddy.DesktopGL.dll" target="lib\net451\HighScoreBuddy.DesktopGL.dll" />
+		<!--WindowsDX-->
+		<file src="HighScoreBuddy.WindowsDX\bin\Release\HighScoreBuddy.WindowsDX.pdb" target="lib\net451\HighScoreBuddy.WindowsDX.pdb" />
+		<file src="HighScoreBuddy.WindowsDX\bin\Release\HighScoreBuddy.WindowsDX.dll" target="lib\net451\HighScoreBuddy.WindowsDX.dll" />
 
 	</files>
 </package>

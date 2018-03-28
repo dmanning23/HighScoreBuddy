@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighScoreBuddy.DesktopGL", "HighScoreBuddy.DesktopGL\HighScoreBuddy.DesktopGL.csproj", "{2AE0A65F-3845-406E-9BC2-9A57329A5B05}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighScoreBuddy.WindowsDX", "HighScoreBuddy.WindowsDX\HighScoreBuddy.WindowsDX.csproj", "{2AE0A65F-3845-406E-9BC2-9A57329A5B05}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HighScoreBuddy.Android", "HighScoreBuddy.Android\HighScoreBuddy.Android.csproj", "{259B6AE6-26F3-4929-B374-809C3C689FF8}"
 EndProject
@@ -124,5 +124,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {718D1A4F-34D6-47F4-9E14-8C41F23C2CFA}
 	EndGlobalSection
 EndGlobal
