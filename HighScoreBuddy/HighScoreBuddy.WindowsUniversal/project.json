@@ -1,23 +1,23 @@
 ﻿{
   "dependencies": {
-    "FilenameBuddy": "1.0.9",
-    "FontBuddy": "1.0.21",
-    "GameTimer": "1.0.4",
-    "HadoukInput": "1.0.6",
-    "InputHelper": "1.0.20",
-    "MenuBuddy": "1.0.90",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2",
-    "MonoGame.Framework.WindowsUniversal": "3.5.1.1679",
-    "MouseBuddy": "1.0.8",
-    "PrimitiveBuddy": "1.0.3",
-    "RandomExtensions.dmanning23": "1.0.3",
-    "SQLiteConnectionBuddy": "1.0.14",
+    "FilenameBuddy": "1.0.12",
+    "FontBuddy": "1.0.25",
+    "GameTimer": "1.0.8",
+    "HadoukInput": "1.0.12",
+    "InputHelper": "1.0.21",
+    "MenuBuddy": "1.0.133",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.4",
+    "MonoGame.Framework.WindowsUniversal": "3.6.0.1625",
+    "MouseBuddy": "1.0.9",
+    "PrimitiveBuddy": "1.0.4",
+    "RandomExtensions.dmanning23": "1.0.5",
+    "SQLiteConnectionBuddy": "1.0.16",
     "SQLiteNetExtensions": "2.0.0",
-    "StateMachineBuddy": "1.0.7",
-    "XmlBuddy": "1.0.16"
+    "StateMachineBuddy": "1.0.12",
+    "XmlBuddy": "1.0.20"
   },
   "frameworks": {
-    "uap10.0": {}
+    "uap10.0.10586": {}
   },
   "runtimes": {
     "win10-arm": {},
