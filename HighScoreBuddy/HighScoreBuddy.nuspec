@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
 	<metadata>
 		<id>HighScoreBuddy</id>
-		<version>1.0.21</version>
+		<version>1.0.23</version>
 		<title>HighScoreBuddy</title>
 		<authors>dmanning23</authors>
 		<owners>dmanning23</owners>
@@ -34,7 +34,7 @@
 				<dependency id="Vector2Extensions" version="1.0.1"/>
 				<dependency id="XmlBuddy" version="1.0"/>
 				<dependency id="SQLiteConnectionBuddy" version="1.0"/>
-      <dependency id="SQLiteNetExtensions" version="2.0"/>
+				<dependency id="SQLiteNetExtensions" version="2.0"/>
 			</group>
 
 			<!--Xamarin.iOS Unified-->
@@ -56,7 +56,7 @@
 				<dependency id="Vector2Extensions" version="1.0.1"/>
 				<dependency id="XmlBuddy" version="1.0"/>
 				<dependency id="SQLiteConnectionBuddy" version="1.0"/>
-      <dependency id="SQLiteNetExtensions" version="2.0"/>
+				<dependency id="SQLiteNetExtensions" version="2.0"/>
 			</group>
 
 			<!--Win Universal-->
@@ -102,13 +102,13 @@
 				<dependency id="Vector2Extensions" version="1.0.1"/>
 				<dependency id="XmlBuddy" version="1.0"/>
 				<dependency id="SQLiteConnectionBuddy" version="1.0"/>
-        <dependency id="SQLiteNetExtensions" version="2.0"/>
+				<dependency id="SQLiteNetExtensions" version="2.0"/>
 			</group>
 
 		</dependencies>
 	</metadata>
 	<files>
-		
+
 		<!--Xamarin.Android-->
 		<file src="HighScoreBuddy.Android\bin\Release\HighScoreBuddy.Android.pdb" target="lib\MonoAndroid10\HighScoreBuddy.Android.pdb" />
 		<file src="HighScoreBuddy.Android\bin\Release\HighScoreBuddy.Android.dll" target="lib\MonoAndroid10\HighScoreBuddy.Android.dll" />
