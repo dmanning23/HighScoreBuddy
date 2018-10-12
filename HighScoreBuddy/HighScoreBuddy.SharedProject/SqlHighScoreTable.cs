@@ -125,7 +125,6 @@ namespace HighScoreBuddy
 
 		public void TruncateHighScoreList(string highScoreList, int num)
 		{
-			throw new NotImplementedException();
 		}
 
 		private int SaveHighScoreList(SQLiteConnection connection, string highScoreList)

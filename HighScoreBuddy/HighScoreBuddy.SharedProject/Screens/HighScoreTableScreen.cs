@@ -61,8 +61,10 @@ namespace HighScoreBuddy
 				Vertical = VerticalAlignment.Top,
 				Horizontal = HorizontalAlignment.Center,
 				Position = new Point(Resolution.ScreenArea.Center.X, Resolution.TitleSafeArea.Top),
-				TransitionObject = new WipeTransitionObject(TransitionWipeType.PopTop)
+				TransitionObject = new WipeTransitionObject(TransitionWipeType.PopTop),
+				Highlightable = false,
 			};
+			title.ShrinkToFit((int)(Resolution.TitleSafeArea.Width * 0.6f));
 			AddItem(title);
 
 			//Add the scroll layout
@@ -89,24 +91,27 @@ namespace HighScoreBuddy
 			foreach (var highScore in highScores)
 			{
 				//add the number to the left
-				var number = new Label(index.ToString() + ".", Content, FontSize.Medium)
+				var number = new Label($"{index.ToString()}.", Content, FontSize.Medium)
 				{
 					Horizontal = HorizontalAlignment.Left,
-					Vertical = VerticalAlignment.Top
+					Vertical = VerticalAlignment.Top,
+					Highlightable = false,
 				};
 
 				//add the initials in teh center
 				var initials = new Label(highScore.Item1, Content, FontSize.Medium)
 				{
 					Horizontal = HorizontalAlignment.Center,
-					Vertical = VerticalAlignment.Top
+					Vertical = VerticalAlignment.Top,
+					Highlightable = false,
 				};
 
 				//add the score to the right
 				var score = new Label(highScore.Item2.ToString(), Content, FontSize.Medium)
 				{
 					Horizontal = HorizontalAlignment.Right,
-					Vertical = VerticalAlignment.Top
+					Vertical = VerticalAlignment.Top,
+					Highlightable = false,
 				};
 
 				//If this is the top score, use a big rainbow font
@@ -151,6 +156,12 @@ namespace HighScoreBuddy
 		protected virtual IEnumerable<Tuple<string, uint>> GetHighScores()
 		{
 			var highScoreComponent = ScreenManager.Game.Services.GetService<IHighScoreTable>();
+
+			if (null == highScoreComponent)
+			{
+				throw new Exception("No IHighScoreTable found in Game.Services. Make sure to create a HighScoreTableComponent on game startup!");
+			}
+
 			return highScoreComponent.GetHighScoreList(HighScoreList, NumHighScores);
 		}
 
