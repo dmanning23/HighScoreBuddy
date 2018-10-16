@@ -31,6 +31,11 @@ namespace HighScoreBuddy
 
 		private ScrollLayout Scroller { get; set; }
 
+		/// <summary>
+		/// Setting this flag will push the names to be displayed directly after the number, to the far left
+		/// </summary>
+		public bool HasLongNames { get; set; }
+
 		#endregion //Properties
 
 		#region Initialization
@@ -137,7 +142,20 @@ namespace HighScoreBuddy
 
 				//add all the items to the layout
 				scoreLayout.AddItem(number);
-				scoreLayout.AddItem(initials);
+
+				if (HasLongNames)
+				{
+					scoreLayout.AddItem(new PaddedLayout(85, 0, 0, 0, initials)
+					{
+						Horizontal = HorizontalAlignment.Left,
+						Vertical = VerticalAlignment.Top,
+					});
+				}
+				else
+				{
+					scoreLayout.AddItem(initials);
+				}
+				
 				scoreLayout.AddItem(score);
 
 				//add to hte score stack
