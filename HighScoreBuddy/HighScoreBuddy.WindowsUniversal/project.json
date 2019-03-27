@@ -1,19 +1,19 @@
 ﻿{
   "dependencies": {
-    "FilenameBuddy": "2.0.0",
-    "FontBuddy": "2.0.0",
+    "FilenameBuddy": "2.0.4",
+    "FontBuddy": "2.0.4",
     "GameTimer": "2.0.0",
-    "HadoukInput": "2.0.0",
+    "HadoukInput": "2.0.18",
     "InputHelper": "2.0.0",
-    "MenuBuddy": "2.0.0",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "6.1.9",
-    "MonoGame.Framework.WindowsUniversal": "3.7.0.1708",
+    "MenuBuddy": "2.0.24",
+    "Microsoft.NETCore.UniversalWindowsPlatform": "6.2.8",
+    "MonoGame.Framework.WindowsUniversal": "3.7.1.189",
     "MouseBuddy": "2.0.0",
     "PrimitiveBuddy": "2.0.0",
     "RandomExtensions.dmanning23": "2.0.0",
     "SQLiteConnectionBuddy": "1.0.17",
     "SQLiteNetExtensions": "2.1.0",
-    "StateMachineBuddy": "2.0.0",
+    "StateMachineBuddy": "2.0.17",
     "XmlBuddy": "2.0.1"
   },
   "frameworks": {
