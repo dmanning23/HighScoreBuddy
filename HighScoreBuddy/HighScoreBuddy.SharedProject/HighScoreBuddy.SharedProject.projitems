@@ -12,11 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MemHighScoreTable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Screens\DailyHighScoreTableScreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Screens\HighScoreTableScreen.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SqlHighScoreTable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IHighScoreTable.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Day.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\Score.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\HighScoreList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HighScoreTableComponent.cs" />
   </ItemGroup>
 </Project>

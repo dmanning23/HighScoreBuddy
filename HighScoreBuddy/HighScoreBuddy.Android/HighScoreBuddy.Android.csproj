@@ -37,7 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FilenameBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\FilenameBuddy.2.0.4\lib\MonoAndroid10\FilenameBuddy.Android.dll</HintPath>
+      <HintPath>..\packages\FilenameBuddy.2.0.5\lib\MonoAndroid10\FilenameBuddy.Android.dll</HintPath>
     </Reference>
     <Reference Include="FontBuddyLib.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontBuddy.2.0.4\lib\MonoAndroid10\FontBuddyLib.Android.dll</HintPath>
@@ -46,16 +46,16 @@
       <HintPath>..\packages\GameTimer.2.0.0\lib\MonoAndroid10\GameTimer.Android.dll</HintPath>
     </Reference>
     <Reference Include="HadoukInput.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HadoukInput.2.0.18\lib\MonoAndroid10\HadoukInput.Android.dll</HintPath>
+      <HintPath>..\packages\HadoukInput.2.0.21\lib\MonoAndroid10\HadoukInput.Android.dll</HintPath>
     </Reference>
     <Reference Include="InputHelper.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\InputHelper.2.0.0\lib\MonoAndroid10\InputHelper.Android.dll</HintPath>
+      <HintPath>..\packages\InputHelper.2.0.6\lib\MonoAndroid10\InputHelper.Android.dll</HintPath>
     </Reference>
     <Reference Include="MatrixExtensions.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MatrixExtensions.2.0.0\lib\MonoAndroid10\MatrixExtensions.Android.dll</HintPath>
     </Reference>
     <Reference Include="MenuBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MenuBuddy.2.0.24\lib\MonoAndroid10\MenuBuddy.Android.dll</HintPath>
+      <HintPath>..\packages\MenuBuddy.2.0.29\lib\MonoAndroid10\MenuBuddy.Android.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
@@ -63,11 +63,11 @@
       <HintPath>..\packages\MonoGame.Framework.Android.3.7.1.189\lib\MonoAndroid\MonoGame.Framework.dll</HintPath>
     </Reference>
     <Reference Include="MouseBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MouseBuddy.2.0.0\lib\MonoAndroid10\MouseBuddy.Android.dll</HintPath>
+      <HintPath>..\packages\MouseBuddy.2.0.2\lib\MonoAndroid10\MouseBuddy.Android.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="PrimitiveBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PrimitiveBuddy.2.0.0\lib\MonoAndroid10\PrimitiveBuddy.Android.dll</HintPath>
@@ -78,32 +78,8 @@
     <Reference Include="ResolutionBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ResolutionBuddy.2.0.1\lib\MonoAndroid10\ResolutionBuddy.Android.dll</HintPath>
     </Reference>
-    <Reference Include="SQLite-net, Version=1.5.231.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\sqlite-net-pcl.1.5.231\lib\netstandard1.1\SQLite-net.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLiteConnectionBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLiteConnectionBuddy.1.0.17\lib\MonoAndroid10\SQLiteConnectionBuddy.Android.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLiteNetExtensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLiteNetExtensions.2.1.0\lib\netstandard1.1\SQLiteNetExtensions.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_green, Version=1.1.13.388, Culture=neutral, PublicKeyToken=a84b7dcfb1391f7f, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.13\lib\MonoAndroid\SQLitePCLRaw.batteries_green.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCLRaw.batteries_v2, Version=1.1.13.388, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.bundle_green.1.1.13\lib\MonoAndroid\SQLitePCLRaw.batteries_v2.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCLRaw.core, Version=1.1.13.388, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.core.1.1.13\lib\MonoAndroid\SQLitePCLRaw.core.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCLRaw.lib.e_sqlite3, Version=1.1.13.388, Culture=neutral, PublicKeyToken=e4ad490600e2234c, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.lib.e_sqlite3.android.1.1.13\lib\MonoAndroid\SQLitePCLRaw.lib.e_sqlite3.dll</HintPath>
-    </Reference>
-    <Reference Include="SQLitePCLRaw.provider.e_sqlite3, Version=1.1.13.388, Culture=neutral, PublicKeyToken=9c301db686d0bd12, processorArchitecture=MSIL">
-      <HintPath>..\packages\SQLitePCLRaw.provider.e_sqlite3.android.1.1.13\lib\MonoAndroid\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
-    </Reference>
     <Reference Include="StateMachineBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\StateMachineBuddy.2.0.17\lib\MonoAndroid10\StateMachineBuddy.Android.dll</HintPath>
+      <HintPath>..\packages\StateMachineBuddy.2.0.18\lib\MonoAndroid10\StateMachineBuddy.Android.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -112,10 +88,10 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="TouchScreenBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TouchScreenBuddy.2.0.0\lib\MonoAndroid10\TouchScreenBuddy.Android.dll</HintPath>
+      <HintPath>..\packages\TouchScreenBuddy.2.0.6\lib\MonoAndroid10\TouchScreenBuddy.Android.dll</HintPath>
     </Reference>
     <Reference Include="Vector2Extensions.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Vector2Extensions.2.0.1\lib\MonoAndroid10\Vector2Extensions.Android.dll</HintPath>
+      <HintPath>..\packages\Vector2Extensions.2.0.2\lib\MonoAndroid10\Vector2Extensions.Android.dll</HintPath>
     </Reference>
     <Reference Include="XmlBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\XmlBuddy.2.0.1\lib\MonoAndroid10\XmlBuddy.Android.dll</HintPath>

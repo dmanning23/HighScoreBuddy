@@ -1,5 +1,4 @@
-﻿using HighScoreBuddy.Models;
-using RandomExtensions;
+﻿using RandomExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +12,13 @@ namespace HighScoreBuddy
 	public class MemHighScoreTable : IHighScoreTable
 	{
 		#region Properties
+
+		class Score
+		{
+			public uint Points { get; set; }
+
+			public string Initials { get; set; }
+		}
 
 		private Dictionary<string, List<Score>> HighScoreLists { get; set; }
 
