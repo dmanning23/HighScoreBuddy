@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ResolutionBuddy;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace HighScoreBuddy
 {
@@ -53,9 +54,9 @@ namespace HighScoreBuddy
 		/// <summary>
 		/// Load graphics content for the screen.
 		/// </summary>
-		public override void LoadContent()
+		public override async Task LoadContent()
 		{
-			base.LoadContent();
+			await base.LoadContent();
 
 			//Get the high scores
 			var highScores = GetHighScores();
