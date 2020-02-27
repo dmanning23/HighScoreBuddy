@@ -125,7 +125,7 @@ namespace HighScoreBuddy
 				{
 					//use a big gay rainbow font for teh top score
 					var topScoreFont = new RainbowTextBuddy();
-					topScoreFont.Font = Content.Load<SpriteFont>(StyleSheet.MediumFontResource);
+					topScoreFont.LoadContent(Content, StyleSheet.MediumFontResource);
 
 					number.Font = topScoreFont;
 					initials.Font = topScoreFont;
