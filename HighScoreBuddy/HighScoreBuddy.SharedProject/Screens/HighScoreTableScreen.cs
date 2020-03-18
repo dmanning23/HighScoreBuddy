@@ -56,120 +56,127 @@ namespace HighScoreBuddy
 		/// </summary>
 		public override async Task LoadContent()
 		{
-			await base.LoadContent();
-
-			//Get the high scores
-			var highScores = GetHighScores();
-
-			//Add the name of the high score list
-			var title = new Label(ScreenName, Content, FontSize.Large)
+			try
 			{
-				Vertical = VerticalAlignment.Top,
-				Horizontal = HorizontalAlignment.Center,
-				Position = new Point(Resolution.ScreenArea.Center.X, Resolution.TitleSafeArea.Top),
-				TransitionObject = new WipeTransitionObject(TransitionWipeType.PopTop),
-				Highlightable = false,
-			};
-			title.ShrinkToFit((int)(Resolution.TitleSafeArea.Width * 0.6f));
-			AddItem(title);
+				await base.LoadContent();
 
-			//Add the scroll layout
-			Scroller = new ScrollLayout()
-			{
-				Position = new Point(0, title.Rect.Bottom),
-				Size = new Vector2(Resolution.ScreenArea.Width, Resolution.ScreenArea.Height - title.Rect.Bottom),
-				Vertical = VerticalAlignment.Top,
-				Horizontal = HorizontalAlignment.Left
-			};
-			AddItem(Scroller);
+				//Get the high scores
+				var highScores = GetHighScores();
 
-			//create the stack layout to hold the scores
-			var scoreStack = new StackLayout()
-			{
-				Vertical = VerticalAlignment.Top,
-				Horizontal = HorizontalAlignment.Center,
-				Position = new Point(Resolution.ScreenArea.Center.X, 0),
-				Alignment = StackAlignment.Top
-			};
-
-			//add each high score
-			int index = 1;
-			foreach (var highScore in highScores)
-			{
-				//add the number to the left
-				var number = new Label($"{index.ToString()}.", Content, FontSize.Medium)
-				{
-					Horizontal = HorizontalAlignment.Left,
-					Vertical = VerticalAlignment.Top,
-					Highlightable = false,
-				};
-
-				//add the initials in teh center
-				var initials = new Label(highScore.Item1, Content, FontSize.Medium)
-				{
-					Horizontal = HorizontalAlignment.Center,
-					Vertical = VerticalAlignment.Top,
-					Highlightable = false,
-				};
-
-				//add the score to the right
-				var score = new Label(highScore.Item2.ToString(), Content, FontSize.Medium)
-				{
-					Horizontal = HorizontalAlignment.Right,
-					Vertical = VerticalAlignment.Top,
-					Highlightable = false,
-				};
-
-				//If this is the top score, use a big rainbow font
-				if (index == 1)
-				{
-					//use a big gay rainbow font for teh top score
-					var topScoreFont = new RainbowTextBuddy();
-					topScoreFont.LoadContent(Content, StyleSheet.MediumFontResource);
-
-					number.Font = topScoreFont;
-					initials.Font = topScoreFont;
-					score.Font = topScoreFont;
-				}
-
-				//create the layout item
-				var scoreLayout = new RelativeLayout()
+				//Add the name of the high score list
+				var title = new Label(ScreenName, Content, FontSize.Large)
 				{
 					Vertical = VerticalAlignment.Top,
 					Horizontal = HorizontalAlignment.Center,
-					Size = new Vector2(Resolution.TitleSafeArea.Width, initials.Rect.Height),
-					Layer = index
+					Position = new Point(Resolution.ScreenArea.Center.X, Resolution.TitleSafeArea.Top),
+					TransitionObject = new WipeTransitionObject(TransitionWipeType.PopTop),
+					Highlightable = false,
+				};
+				title.ShrinkToFit((int)(Resolution.TitleSafeArea.Width * 0.6f));
+				AddItem(title);
+
+				//Add the scroll layout
+				Scroller = new ScrollLayout()
+				{
+					Position = new Point(0, title.Rect.Bottom),
+					Size = new Vector2(Resolution.ScreenArea.Width, Resolution.ScreenArea.Height - title.Rect.Bottom),
+					Vertical = VerticalAlignment.Top,
+					Horizontal = HorizontalAlignment.Left
+				};
+				AddItem(Scroller);
+
+				//create the stack layout to hold the scores
+				var scoreStack = new StackLayout()
+				{
+					Vertical = VerticalAlignment.Top,
+					Horizontal = HorizontalAlignment.Center,
+					Position = new Point(Resolution.ScreenArea.Center.X, 0),
+					Alignment = StackAlignment.Top
 				};
 
-				//add all the items to the layout
-				scoreLayout.AddItem(number);
-
-				if (HasLongNames)
+				//add each high score
+				int index = 1;
+				foreach (var highScore in highScores)
 				{
-					scoreLayout.AddItem(new PaddedLayout(85, 0, 0, 0, initials)
+					//add the number to the left
+					var number = new Label($"{index.ToString()}.", Content, FontSize.Medium)
 					{
 						Horizontal = HorizontalAlignment.Left,
 						Vertical = VerticalAlignment.Top,
-					});
-				}
-				else
-				{
-					scoreLayout.AddItem(initials);
-				}
-				
-				scoreLayout.AddItem(score);
+						Highlightable = false,
+					};
 
-				//add to hte score stack
-				scoreStack.AddItem(scoreLayout);
+					//add the initials in teh center
+					var initials = new Label(highScore.Item1, Content, FontSize.Medium)
+					{
+						Horizontal = HorizontalAlignment.Center,
+						Vertical = VerticalAlignment.Top,
+						Highlightable = false,
+					};
 
-				//make sure to increment the index
-				index++;
+					//add the score to the right
+					var score = new Label(highScore.Item2.ToString(), Content, FontSize.Medium)
+					{
+						Horizontal = HorizontalAlignment.Right,
+						Vertical = VerticalAlignment.Top,
+						Highlightable = false,
+					};
+
+					//If this is the top score, use a big rainbow font
+					if (index == 1)
+					{
+						//use a big gay rainbow font for teh top score
+						var topScoreFont = new RainbowTextBuddy();
+						topScoreFont.LoadContent(Content, StyleSheet.MediumFontResource, StyleSheet.UseFontPlus, StyleSheet.MediumFontSize);
+
+						number.Font = topScoreFont;
+						initials.Font = topScoreFont;
+						score.Font = topScoreFont;
+					}
+
+					//create the layout item
+					var scoreLayout = new RelativeLayout()
+					{
+						Vertical = VerticalAlignment.Top,
+						Horizontal = HorizontalAlignment.Center,
+						Size = new Vector2(Resolution.TitleSafeArea.Width, initials.Rect.Height),
+						Layer = index
+					};
+
+					//add all the items to the layout
+					scoreLayout.AddItem(number);
+
+					if (HasLongNames)
+					{
+						scoreLayout.AddItem(new PaddedLayout(85, 0, 0, 0, initials)
+						{
+							Horizontal = HorizontalAlignment.Left,
+							Vertical = VerticalAlignment.Top,
+						});
+					}
+					else
+					{
+						scoreLayout.AddItem(initials);
+					}
+
+					scoreLayout.AddItem(score);
+
+					//add to hte score stack
+					scoreStack.AddItem(scoreLayout);
+
+					//make sure to increment the index
+					index++;
+				}
+
+				Scroller.AddItem(scoreStack);
+
+				//Scroll all the way to the bottom
+				Scroller.ScrollPosition = Scroller.MaxScroll;
 			}
-
-			Scroller.AddItem(scoreStack);
-
-			//Scroll all the way to the bottom
-			Scroller.ScrollPosition = Scroller.MaxScroll;
+			catch (Exception ex)
+			{
+				await ScreenManager.ErrorScreen(ex);
+			}
 		}
 
 		protected virtual IEnumerable<Tuple<string, uint>> GetHighScores()

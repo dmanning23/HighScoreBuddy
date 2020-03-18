@@ -46,7 +46,7 @@
       <HintPath>..\packages\GameTimer.2.0.0\lib\MonoAndroid10\GameTimer.Android.dll</HintPath>
     </Reference>
     <Reference Include="HadoukInput.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\HadoukInput.2.0.29\lib\MonoAndroid10\HadoukInput.Android.dll</HintPath>
+      <HintPath>..\packages\HadoukInput.2.0.32\lib\MonoAndroid10\HadoukInput.Android.dll</HintPath>
     </Reference>
     <Reference Include="InputHelper.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\InputHelper.2.0.7\lib\MonoAndroid10\InputHelper.Android.dll</HintPath>
@@ -55,7 +55,7 @@
       <HintPath>..\packages\MatrixExtensions.2.0.0\lib\MonoAndroid10\MatrixExtensions.Android.dll</HintPath>
     </Reference>
     <Reference Include="MenuBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MenuBuddy.2.0.59\lib\MonoAndroid10\MenuBuddy.Android.dll</HintPath>
+      <HintPath>..\packages\MenuBuddy.2.0.62\lib\MonoAndroid10\MenuBuddy.Android.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Mono.Android" />
@@ -82,7 +82,7 @@
       <HintPath>..\packages\SpriteFontPlus.MonoGame.0.7.0.22\lib\netstandard2.0\SpriteFontPlus.dll</HintPath>
     </Reference>
     <Reference Include="StateMachineBuddy.Android, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\StateMachineBuddy.2.0.19\lib\MonoAndroid10\StateMachineBuddy.Android.dll</HintPath>
+      <HintPath>..\packages\StateMachineBuddy.2.0.20\lib\MonoAndroid10\StateMachineBuddy.Android.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
