@@ -1,7 +1,7 @@
 ﻿using FontBuddyLib;
 using MenuBuddy;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 using ResolutionBuddy;
 using System;
 using System.Collections.Generic;
@@ -44,8 +44,8 @@ namespace HighScoreBuddy
 		/// <summary>
 		/// Constructor fills in the menu contents.
 		/// </summary>
-		public HighScoreTableScreen(string screenTitle, string highScoreList, int num)
-			: base(screenTitle)
+		public HighScoreTableScreen(string screenTitle, string highScoreList, int num, ContentManager content = null)
+			: base(screenTitle, content)
 		{
 			HighScoreList = highScoreList;
 			NumHighScores = num;

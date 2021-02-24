@@ -1,4 +1,5 @@
 ﻿using MenuBuddy;
+using Microsoft.Xna.Framework.Content;
 using System;
 using System.Collections.Generic;
 
@@ -12,8 +13,8 @@ namespace HighScoreBuddy
 		/// <summary>
 		/// Constructor fills in the menu contents.
 		/// </summary>
-		public DailyHighScoreTableScreen(string screenTitle, string highScoreList, int num)
-			: base(screenTitle, highScoreList, num)
+		public DailyHighScoreTableScreen(string screenTitle, string highScoreList, int num, ContentManager content = null)
+			: base(screenTitle, highScoreList, num, content)
 		{
 		}
 
