@@ -37,6 +37,10 @@ namespace HighScoreBuddy
 		/// </summary>
 		public bool HasLongNames { get; set; }
 
+		IFontBuddy titleFont;
+		IFontBuddy itemFont;
+		IFontBuddy topScoreFont;
+
 		#endregion //Properties
 
 		#region Initialization
@@ -60,11 +64,28 @@ namespace HighScoreBuddy
 			{
 				await base.LoadContent();
 
+				//Load the fonts
+				if (StyleSheet.UseFontPlus)
+				{
+					titleFont = new FontBuddyPlus();
+					itemFont = new FontBuddyPlus();
+				}
+				else
+				{
+					titleFont = new FontBuddy();
+					itemFont = new FontBuddy();
+				}
+				titleFont.LoadContent(Content, StyleSheet.LargeFontResource, StyleSheet.UseFontPlus, StyleSheet.LargeFontSize);
+				itemFont.LoadContent(Content, StyleSheet.MediumFontResource, StyleSheet.UseFontPlus, StyleSheet.MediumFontSize);
+
+				topScoreFont = new RainbowTextBuddy();
+				topScoreFont.LoadContent(Content, StyleSheet.MediumFontResource, StyleSheet.UseFontPlus, StyleSheet.MediumFontSize);
+
 				//Get the high scores
 				var highScores = GetHighScores();
 
 				//Add the name of the high score list
-				var title = new Label(ScreenName, Content, FontSize.Large)
+				var title = new Label(ScreenName, titleFont)
 				{
 					Vertical = VerticalAlignment.Top,
 					Horizontal = HorizontalAlignment.Center,
@@ -99,7 +120,7 @@ namespace HighScoreBuddy
 				foreach (var highScore in highScores)
 				{
 					//add the number to the left
-					var number = new Label($"{index.ToString()}.", Content, FontSize.Medium)
+					var number = new Label($"{index.ToString()}.", itemFont)
 					{
 						Horizontal = HorizontalAlignment.Left,
 						Vertical = VerticalAlignment.Top,
@@ -107,7 +128,7 @@ namespace HighScoreBuddy
 					};
 
 					//add the initials in teh center
-					var initials = new Label(highScore.Item1, Content, FontSize.Medium)
+					var initials = new Label(highScore.Item1, itemFont)
 					{
 						Horizontal = HorizontalAlignment.Center,
 						Vertical = VerticalAlignment.Top,
@@ -115,7 +136,7 @@ namespace HighScoreBuddy
 					};
 
 					//add the score to the right
-					var score = new Label(highScore.Item2.ToString(), Content, FontSize.Medium)
+					var score = new Label(highScore.Item2.ToString(), itemFont)
 					{
 						Horizontal = HorizontalAlignment.Right,
 						Vertical = VerticalAlignment.Top,
@@ -125,10 +146,7 @@ namespace HighScoreBuddy
 					//If this is the top score, use a big rainbow font
 					if (index == 1)
 					{
-						//use a big gay rainbow font for teh top score
-						var topScoreFont = new RainbowTextBuddy();
-						topScoreFont.LoadContent(Content, StyleSheet.MediumFontResource, StyleSheet.UseFontPlus, StyleSheet.MediumFontSize);
-
+						//use a big rainbow font for teh top score
 						number.Font = topScoreFont;
 						initials.Font = topScoreFont;
 						score.Font = topScoreFont;
@@ -177,6 +195,18 @@ namespace HighScoreBuddy
 			{
 				await ScreenManager.ErrorScreen(ex);
 			}
+		}
+
+		public override void UnloadContent()
+		{
+			titleFont?.Dispose();
+			titleFont = null;
+			itemFont?.Dispose();
+			itemFont = null;
+			topScoreFont?.Dispose();
+			topScoreFont = null;
+
+			base.UnloadContent();
 		}
 
 		protected virtual IEnumerable<Tuple<string, uint>> GetHighScores()
