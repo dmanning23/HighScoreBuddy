@@ -37,9 +37,11 @@ namespace HighScoreBuddy
 		/// </summary>
 		public bool HasLongNames { get; set; }
 
-		IFontBuddy titleFont;
-		IFontBuddy itemFont;
-		IFontBuddy topScoreFont;
+		private IFontBuddy TitleFont { get; set; }
+		private IFontBuddy ItemFont { get; set; }
+		private IFontBuddy TopScoreFont { get; set; }
+
+		private bool ManageFonts { get; set; } = true;
 
 		#endregion //Properties
 
@@ -55,6 +57,14 @@ namespace HighScoreBuddy
 			NumHighScores = num;
 		}
 
+		public void SetFonts(IFontBuddy titleFont, IFontBuddy itemFont, IFontBuddy topScoreFont)
+		{
+			TitleFont = titleFont;
+			ItemFont = itemFont;
+			TopScoreFont = topScoreFont;
+			ManageFonts = false;
+		}
+
 		/// <summary>
 		/// Load graphics content for the screen.
 		/// </summary>
@@ -64,28 +74,31 @@ namespace HighScoreBuddy
 			{
 				await base.LoadContent();
 
-				//Load the fonts
-				if (StyleSheet.UseFontPlus)
+				if (ManageFonts)
 				{
-					titleFont = new FontBuddyPlus();
-					itemFont = new FontBuddyPlus();
-				}
-				else
-				{
-					titleFont = new FontBuddy();
-					itemFont = new FontBuddy();
-				}
-				titleFont.LoadContent(Content, StyleSheet.LargeFontResource, StyleSheet.UseFontPlus, StyleSheet.LargeFontSize);
-				itemFont.LoadContent(Content, StyleSheet.MediumFontResource, StyleSheet.UseFontPlus, StyleSheet.MediumFontSize);
+					//Load the fonts
+					if (StyleSheet.UseFontPlus)
+					{
+						TitleFont = new FontBuddyPlus();
+						ItemFont = new FontBuddyPlus();
+					}
+					else
+					{
+						TitleFont = new FontBuddy();
+						ItemFont = new FontBuddy();
+					}
+					TitleFont.LoadContent(Content, StyleSheet.LargeFontResource, StyleSheet.UseFontPlus, StyleSheet.LargeFontSize);
+					ItemFont.LoadContent(Content, StyleSheet.MediumFontResource, StyleSheet.UseFontPlus, StyleSheet.MediumFontSize);
 
-				topScoreFont = new RainbowTextBuddy();
-				topScoreFont.LoadContent(Content, StyleSheet.MediumFontResource, StyleSheet.UseFontPlus, StyleSheet.MediumFontSize);
+					TopScoreFont = new RainbowTextBuddy();
+					TopScoreFont.LoadContent(Content, StyleSheet.MediumFontResource, StyleSheet.UseFontPlus, StyleSheet.MediumFontSize);
+				}
 
 				//Get the high scores
 				var highScores = GetHighScores();
 
 				//Add the name of the high score list
-				var title = new Label(ScreenName, titleFont)
+				var title = new Label(ScreenName, TitleFont)
 				{
 					Vertical = VerticalAlignment.Top,
 					Horizontal = HorizontalAlignment.Center,
@@ -120,7 +133,7 @@ namespace HighScoreBuddy
 				foreach (var highScore in highScores)
 				{
 					//add the number to the left
-					var number = new Label($"{index.ToString()}.", itemFont)
+					var number = new Label($"{index.ToString()}.", ItemFont)
 					{
 						Horizontal = HorizontalAlignment.Left,
 						Vertical = VerticalAlignment.Top,
@@ -128,7 +141,7 @@ namespace HighScoreBuddy
 					};
 
 					//add the initials in teh center
-					var initials = new Label(highScore.Item1, itemFont)
+					var initials = new Label(highScore.Item1, ItemFont)
 					{
 						Horizontal = HorizontalAlignment.Center,
 						Vertical = VerticalAlignment.Top,
@@ -136,7 +149,7 @@ namespace HighScoreBuddy
 					};
 
 					//add the score to the right
-					var score = new Label(highScore.Item2.ToString(), itemFont)
+					var score = new Label(highScore.Item2.ToString(), ItemFont)
 					{
 						Horizontal = HorizontalAlignment.Right,
 						Vertical = VerticalAlignment.Top,
@@ -147,9 +160,9 @@ namespace HighScoreBuddy
 					if (index == 1)
 					{
 						//use a big rainbow font for teh top score
-						number.Font = topScoreFont;
-						initials.Font = topScoreFont;
-						score.Font = topScoreFont;
+						number.Font = TopScoreFont;
+						initials.Font = TopScoreFont;
+						score.Font = TopScoreFont;
 					}
 
 					//create the layout item
@@ -199,12 +212,15 @@ namespace HighScoreBuddy
 
 		public override void UnloadContent()
 		{
-			titleFont?.Dispose();
-			titleFont = null;
-			itemFont?.Dispose();
-			itemFont = null;
-			topScoreFont?.Dispose();
-			topScoreFont = null;
+			if (ManageFonts)
+			{
+				TitleFont?.Dispose();
+				TitleFont = null;
+				ItemFont?.Dispose();
+				ItemFont = null;
+				TopScoreFont?.Dispose();
+				TopScoreFont = null;
+			}
 
 			base.UnloadContent();
 		}
