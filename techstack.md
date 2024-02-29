@@ -32,7 +32,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [dmanning23/HighScoreBuddy](https://github.com/dmanning23/HighScoreBuddy)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|81<br/>Tools used|02/15/24 <br/>Report generated|
+|81<br/>Tools used|02/29/24 <br/>Report generated|
 |------|------|
 </div>
 
